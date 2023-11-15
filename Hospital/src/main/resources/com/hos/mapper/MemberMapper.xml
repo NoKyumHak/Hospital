@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.hos.mapper.MemberMapper">
+		<insert id="memberJoin">
+  		insert into hos_member (memberId , memberName, memberPw, memberIDNum, memberPhone, memberEmail, gender) values( #{memberId} , #{memberName}, #{memberPw}, #{memberIDNum}, #{memberPhone}, #{memberEmail}, #{gender})
+
+  		</insert>
+  </mapper>
