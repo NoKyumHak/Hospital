@@ -30,5 +30,6 @@
 	<mybatis-spring:scan base-package="com.hos.mapper" />
 	<context:component-scan base-package="com.hos.sample"></context:component-scan>
 	<context:component-scan base-package="com.hos.model"></context:component-scan>
+	<context:component-scan base-package="com.hos.service"></context:component-scan>
 
 </beans>
