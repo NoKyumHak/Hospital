@@ -1,15 +1,15 @@
 package com.hos.model;
 
 public class MemberVO {
-	int memberNum;
-	String memberId;
-	String memberName;
-	String memberPw;
-	String memberIDNum;
-	String memberPhone;
-	String memberEmail;
-	int gender;
-	int adminCk;
+	private int memberNum;
+	private String memberId;
+	private String memberName;
+	private String memberPw;
+	private String memberIDNum;
+	private String memberPhone;
+	private String memberEmail;
+	private int gender;
+	private int adminCk;
 	public int getMemberNum() {
 		return memberNum;
 	}
