@@ -9,13 +9,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 import com.hos.service.MemberService;
 
@@ -28,6 +27,10 @@ public class MemberController {
 	@Autowired
 	private JavaMailSender mailSender;
 
+	@Autowired
+	private BCryptPasswordEncoder pwEncoder;
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	// 회원가입 페이지 이동
@@ -50,16 +53,20 @@ public class MemberController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
 
-		logger.info("join 진입");
-
-		// 회원가입 서비스 실행
-		memberservice.memberJoin(member);
-
-		logger.info("join Service 성공");
+		String rawPw = "";            // 인코딩 전 비밀번호
+        String encodePw = "";        // 인코딩 후 비밀번호
+        
+        rawPw = member.getMemberPw();            // 비밀번호 데이터 얻음
+        encodePw = pwEncoder.encode(rawPw);        // 비밀번호 인코딩
+        member.setMemberPw(encodePw);            // 인코딩된 비밀번호 member객체에 다시 저장
+        
+        /* 회원가입 쿼리 실행 */
+        memberservice.memberJoin(member);
 
 		return "redirect:/main";
 
 	}
+
 	// 예약
 	@RequestMapping(value = "reserve", method = RequestMethod.GET)
 	public void reserveGET() {
@@ -67,9 +74,9 @@ public class MemberController {
 		logger.info("reserve 진입");
 
 		// 예약 서비스 실행
-		
 
 	}
+
 	// 아이디 중복 검사
 	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 	@ResponseBody
