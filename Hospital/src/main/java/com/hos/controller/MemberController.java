@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 import com.hos.service.MemberService;
 
@@ -58,7 +60,16 @@ public class MemberController {
 		return "redirect:/main";
 
 	}
+	// 예약
+	@RequestMapping(value = "reserve", method = RequestMethod.GET)
+	public void reserveGET() {
 
+		logger.info("reserve 진입");
+
+		// 예약 서비스 실행
+		
+
+	}
 	// 아이디 중복 검사
 	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 	@ResponseBody

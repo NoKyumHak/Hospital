@@ -1,11 +1,13 @@
 package com.hos.mapper;
 
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 
 public interface MemberMapper {
 	// 회원가입
 	public void memberJoin(MemberVO member);
-
+	// 예약하기
+	public void memberReserve(CheckVO check);
 	// 아이디 중복 검사
 	public int idCheck(String memberId);
 

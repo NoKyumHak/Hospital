@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hos.mapper.MemberMapper;
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 
 @Service
@@ -35,6 +36,13 @@ public class MemberServiceImpl implements MemberService {
 	public int phoneCheck(String memberPhone) throws Exception {
 		// TODO Auto-generated method stub
 		return membermapper.phoneCheck(memberPhone);
+	}
+
+	@Override
+	public void memberReserve(CheckVO check) throws Exception {
+		
+		membermapper.memberReserve(check);
+		
 	}
 
 }
