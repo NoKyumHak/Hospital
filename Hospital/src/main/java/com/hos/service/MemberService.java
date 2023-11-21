@@ -7,8 +7,20 @@ public interface MemberService {
 
 	// 회원가입
 	public void memberJoin(MemberVO member) throws Exception;
+<<<<<<< HEAD
 	
 	// 예약
 	public void memberReserve(CheckVO check) throws Exception;
+=======
+
+	// 아이디 중복 검사
+	public int idCheck(String memberId) throws Exception;
+
+	// 전화번호 중복 검사
+	public int phoneCheck(String memberPhone) throws Exception;
+
+	// 주민번호 중복 검사
+	public int idnumCheck(String memberIDNum) throws Exception;
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital
 
 }

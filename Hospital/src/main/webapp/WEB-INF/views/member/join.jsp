@@ -4,10 +4,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="/resources/css/member/join.css">
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -23,6 +22,8 @@
 					<div class="id_input_box">
 						<input class="id_input" name="memberId">
 					</div>
+					<span class="id_input_re_1">사용 가능한 아이디입니다.</span> <span
+						class="id_input_re_2">아이디가 이미 존재합니다.</span>
 				</div>
 				<div class="pw_wrap">
 					<div class="pw_name">비밀번호</div>
@@ -45,14 +46,18 @@
 				<div class="idnum_wrap">
 					<div class="idnum_name">주민 등록 번호</div>
 					<div class="idnum_input_box">
-						<input class="idnum_input" name="memberIDNum">
+						<input class="idnum_input" name="memberIDNum" maxlength="14">
 					</div>
+					<span class="idnum_input_re_1">사용 가능한 주민번호입니다.</span> <span
+						class="idnum_input_re_2">주민번호가 이미 존재합니다.</span>
 				</div>
 				<div class="phone_wrap">
 					<div class="phone_name">전화 번호</div>
 					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone">
+						<input class="phone_input" name="memberPhone" maxlength="13">
 					</div>
+					<span class="phone_input_re_1">사용 가능한 휴대폰 번호입니다.</span> <span
+						class="phone_input_re_2">휴대폰 번호가 이미 존재합니다.</span>
 				</div>
 				<div class="mail_wrap">
 					<div class="mail_name">이메일</div>
@@ -73,12 +78,11 @@
 					<div class="gender_name">성별</div>
 					<div class="gender_input_box">
 						<fieldset>
-							<label> <input type="radio" id="gender_input" name="gender" value="1"
-								checked="checked" /> <span>남자</span>
-							</label>
 							<label> <input type="radio" id="gender_input"
-								name="gender" value="0"/> <span>여자</span>
-							</label>  
+								name="gender" value="1" checked="checked" /> <span>남자</span>
+							</label> <label> <input type="radio" id="gender_input"
+								name="gender" value="0" /> <span>여자</span>
+							</label>
 						</fieldset>
 					</div>
 				</div>
@@ -98,6 +102,85 @@
 		});
 	});
 	
+	//아이디 중복검사
+	$('.id_input').on("propertychange change keyup paste input", function(){
+
+		var memberId = $('.id_input').val();			// .id_input에 입력되는 값
+		var data = {memberId : memberId}				// '컨트롤에 넘길 데이터 이름' : '데이터(.id_input에 입력되는 값)'
+		
+		$.ajax({
+			type : "post",
+			url : "/member/memberIdChk",
+			data : data,
+			success : function(result){
+				// console.log("성공 여부" + result);
+				if(result != 'fail'){
+					$('.id_input_re_1').css("display","inline-block");
+					$('.id_input_re_2').css("display", "none");				
+				} else {
+					$('.id_input_re_2').css("display","inline-block");
+					$('.id_input_re_1').css("display", "none");				
+				}
+			}// success 종료
+		}); // ajax 종료	
+	});// function 종료
+	
+	//폰번호 중복검사
+	$('.phone_input').on("propertychange change keyup paste input", function(){
+		autoHyphen(this);
+		var memberPhone = $('.phone_input').val();			// .phone_input에 입력되는 값
+		var data = {memberPhone : memberPhone}				// '컨트롤에 넘길 데이터 이름' : '데이터(.phone_input에 입력되는 값)'
+		
+		$.ajax({
+			type : "post",
+			url : "/member/memberPhoneChk",
+			data : data,
+			success : function(result){
+				// console.log("성공 여부" + result);
+				if(result != 'fail'){
+					$('.phone_input_re_1').css("display","inline-block");
+					$('.phone_input_re_2').css("display", "none");				
+				} else {
+					$('.phone_input_re_2').css("display","inline-block");
+					$('.phone_input_re_1').css("display", "none");				
+				}
+			}// success 종료
+		}); // ajax 종료	
+	});// function 종료
+	
+	//주민번호 중복검사
+	$('.idnum_input').on("propertychange change keyup paste input", function(){
+		autoHyphen2(this);
+		var memberIDNum = $('.idnum_input').val();			// .idnum_input에 입력되는 값
+		var data = {memberIDNum : memberIDNum}				// '컨트롤에 넘길 데이터 이름' : '데이터(.idnum_input에 입력되는 값)'
+		
+		$.ajax({
+			type : "post",
+			url : "/member/memberIDNumChk",
+			data : data,
+			success : function(result){
+				// console.log("성공 여부" + result);
+				if(result != 'fail'){
+					$('.idnum_input_re_1').css("display","inline-block");
+					$('.idnum_input_re_2').css("display", "none");				
+				} else {
+					$('.idnum_input_re_2').css("display","inline-block");
+					$('.idnum_input_re_1').css("display", "none");				
+				}
+			}// success 종료
+		}); // ajax 종료	
+	});// function 종료
+	
+	const autoHyphen = (target) => {
+		 target.value = target.value
+		   .replace(/[^0-9]/g, '')
+		   .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+		};
+		const autoHyphen2 = (target) => {
+			 target.value = target.value
+			   .replace(/[^0-9]/g, '')
+			   .replace(/^(\d{6})(\d{7})$/, `$1-$2`);
+			};
 	</script>
 </body>
 </html>
