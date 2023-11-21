@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="gender_wrap">
-					<div class="gender_name">성별</div>
+					<div class="gender_name">성ㅕㅕ별</div>
 					<div class="gender_input_box">
 						<fieldset>
 							<label> <input type="radio" id="gender_input"
