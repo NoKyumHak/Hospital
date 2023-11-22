@@ -58,7 +58,6 @@
                 		</c:if> 
                 	</div>
                 <%@include file="../includes/medical/footer.jsp" %>
-
 <script>
 $(document).ready(function(){
 	

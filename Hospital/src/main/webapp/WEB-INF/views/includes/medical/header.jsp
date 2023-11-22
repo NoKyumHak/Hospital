@@ -13,7 +13,6 @@
             <!-- top_subject_area -->
             <div class="admin_top_wrap">
                 <span>의료진 페이지</span>
-                
             </div>
             <!-- contents-area -->
             <div class="admin_wrap">

@@ -18,6 +18,7 @@ import com.hos.service.MedicalService;
 public class MedicalController {
 	private static final Logger logger = LoggerFactory.getLogger(MedicalController.class);
 	
+	
 	@Autowired
 	private MedicalService medicalservice;
 	

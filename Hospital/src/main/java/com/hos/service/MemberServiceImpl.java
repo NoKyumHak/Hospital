@@ -50,5 +50,4 @@ public class MemberServiceImpl implements MemberService {
 		membermapper.memberReserve(check);
 		
 	}
-
 }

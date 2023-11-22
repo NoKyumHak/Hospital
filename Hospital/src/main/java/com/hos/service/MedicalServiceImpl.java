@@ -23,4 +23,5 @@ public class MedicalServiceImpl implements MedicalService {
 		log.info("reservCheck()......");
 		return medicalmapper.reservCheck();
 	}
+	
 }

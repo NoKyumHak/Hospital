@@ -8,4 +8,5 @@ public interface MedicalService {
 	
 	/* 예약 확인 */
 	public List<CheckVO> reservCheck();
+	
 }

@@ -14,7 +14,6 @@
 </head>
 </head>
 <body>
- 
     <%@include file="../includes/medical/header.jsp" %>
     <div class="admin_content_wrap">
         <div>의료진 페이지 입니다.</div>

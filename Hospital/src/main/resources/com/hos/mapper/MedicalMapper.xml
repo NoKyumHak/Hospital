@@ -6,4 +6,5 @@
 	<select id="reservCheck" resultType="com.hos.model.CheckVO">
 		select * from hos_check
 	</select>
+	
 </mapper>

@@ -9,3 +9,4 @@ public interface MedicalMapper {
 	/* 예약 확인 */
 	public List<CheckVO> reservCheck();
 }
+

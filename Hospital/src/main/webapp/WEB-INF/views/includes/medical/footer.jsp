@@ -39,7 +39,6 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-        </div> <!-- class="footer" -->        
-        
+        </div> <!-- class="footer" -->
     </div>    <!-- class="wrap" -->
 </div>    <!-- class="wrapper" -->

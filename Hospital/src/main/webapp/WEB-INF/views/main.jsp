@@ -69,7 +69,6 @@
             } 
         }); // ajax 
     });
-    
 </script>
 </body>
 </html>

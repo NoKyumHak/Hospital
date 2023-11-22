@@ -88,4 +88,5 @@ public class CheckVO {
 				+ ", subject=" + subject + ", checkDate=" + checkDate + ", checkTime=" + checkTime + ", memberPhone="
 				+ memberPhone + "]";
 	}
+	
 }
