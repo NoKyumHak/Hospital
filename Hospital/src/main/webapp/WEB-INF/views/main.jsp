@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +24,22 @@
 				<h1>조경도</h1>
 			</div>
 			<div class="login_area">
+			<c:if test = "${member == null}">
 				<div class="login_button"><a href="/member/login">로그인</a></div>
 				<span><a href="/member/join">회원가입</a></span>
+			</c:if>
+			<c:if test="${member != null }">   
+               	<c:if test="${member.adminCk == 1 }">
+                    <li><a href="/medical/main">의료진 페이지</a></li>
+                </c:if>
+                <c:if test="${member.adminCk == 2 }">
+                    <li><a href="/admin/main">관리자 페이지</a></li>
+                </c:if>                 
+                <li>
+                    <a id="gnb_logout_button">로그아웃</a>
+                </li>
+            </c:if>  
+               	
 			</div>
 			<div class="clearfix"></div>			
 		</div>
