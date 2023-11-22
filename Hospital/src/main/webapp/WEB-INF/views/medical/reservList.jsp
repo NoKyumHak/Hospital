@@ -49,6 +49,7 @@
 	                    		</c:forEach>
 	                    	</table>
 	                    </c:if>
+	                     
 	                    <!-- 상품 리스트 X -->
                 		<c:if test="${listCheck == 'empty'}">
                 			<div class="table_empty">
