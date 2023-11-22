@@ -31,4 +31,10 @@
 		select count(*) from hos_member where memberIDNum = #{memberIDNum}
 
 	</select>
+	
+	<!-- 유저 번호 구하기 -->
+	<select id="memberNum" resultType="int">
+		select memberNum from hos_member where memberPhone = #{memberPhone}
+	</select>
+	
 </mapper>

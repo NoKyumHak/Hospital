@@ -27,10 +27,10 @@
 						<input class="user_input" name="memberName">
 					</div>
 				</div>
-				<div class="phone_wrap">
-					<div class="phone_name">전화 번호</div>
-					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone">
+				<div class="idnum_wrap">
+					<div class="idnum_name">주민 등록 번호</div>
+					<div class="idnum_input_box">
+						<input class="idnum_input" name="memberIDNum" maxlength="14">
 					</div>
 				</div>
 				<div class="gender_wrap">
@@ -45,6 +45,12 @@
 						</fieldset>
 					</div>
 				</div>
+				<div class="phone_wrap">
+					<div class="phone_name">전화 번호</div>
+					<div class="phone_input_box">
+						<input class="phone_input" name="memberPhone">
+					</div>
+				</div>
 				<div class="subject_wrap">
 					<div class="subject_name">진료 과</div>
 					<div class="subject_input_box">
@@ -53,9 +59,7 @@
 				</div>
 				<div class="checkDate_wrap">
 					<div class="checkDate_name">진료 희망일</div>
-					<div class="checkDate_input_box">
-						<input name="checkDate" autocomplete="off" readonly="readonly">
-					</div>
+					<input name="checkDate" autocomplete="off" readonly="readonly">
 				</div>
 				<div class="reserve_button_wrap">
 					<input type="button" class="reserve_button" value="예약하기">
@@ -64,11 +68,22 @@
 		</form>
 	</div>
 	<script>
+	
+	let checkForm = {};
+	
+	/* 등록 버튼 */
+	$("#reserve_button").click(function(){ 
+		
+		e.preventDefault();
+		$("#reserve_form").submit();
+		
+	});
+	   
 		$(document).ready(function() {
 			//예약 버튼(예약 기능 작동)
 			$(".reserve_button").click(function() {
 				$("#reserve_form").attr("action", "/member/reserve");
-				$("##reserve_form").submit();
+				$("#reserve_form").submit();
 			});
 		});
 

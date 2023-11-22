@@ -3,6 +3,8 @@ package com.hos.model;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CheckVO {
 
 	/* seq */
@@ -15,6 +17,7 @@ public class CheckVO {
 	private String subject;
 	
 	/* 날짜 */
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date checkDate;
 
 	/* 시간 */
