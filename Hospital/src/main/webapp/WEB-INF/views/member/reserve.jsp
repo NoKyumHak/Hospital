@@ -24,31 +24,19 @@
 				<div class="user_wrap">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" name="memberName">
+						<input class="user_input" name="memberName" readonly="readonly">
 					</div>
 				</div>
 				<div class="idnum_wrap">
 					<div class="idnum_name">주민 등록 번호</div>
 					<div class="idnum_input_box">
-						<input class="idnum_input" name="memberIDNum" maxlength="14">
-					</div>
-				</div>
-				<div class="gender_wrap">
-					<div class="gender_name">성별</div>
-					<div class="gender_input_box">
-						<fieldset>
-							<label> <input type="radio" id="gender_input"
-								name="gender" value="1" checked="checked" /> <span>남자</span>
-							</label> <label> <input type="radio" id="gender_input"
-								name="gender" value="0" /> <span>여자</span>
-							</label>
-						</fieldset>
+						<input class="idnum_input" name="memberIDNum" maxlength="14" readonly="readonly">
 					</div>
 				</div>
 				<div class="phone_wrap">
 					<div class="phone_name">전화 번호</div>
 					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone">
+						<input class="phone_input" name="memberPhone" readonly="readonly">
 					</div>
 				</div>
 				<div class="subject_wrap">

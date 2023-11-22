@@ -39,7 +39,8 @@
 .user_input_box{
 	border: 1px solid black;
 	height:31px;
-	padding: 10px 14px;	
+	padding: 10px 14px;
+	background-color: #c0c0c0;	
 	
 }
 .user_input{
@@ -47,6 +48,7 @@
 	height:100%;
 	border:none;
 	font-size:28px;
+	background-color: #c0c0c0;
 }
 
 /* 주민번호 영역 */
@@ -61,7 +63,8 @@
 .idnum_input_box{
 	border: 1px solid black;
 	height:31px;
-	padding: 10px 14px;	
+	padding: 10px 14px;
+	background-color: #c0c0c0;	
 	
 }
 .idnum_input{
@@ -69,16 +72,7 @@
 	height:100%;
 	border:none;
 	font-size:28px;
-}
-
-/* 성별 영역 */
-.gender_wrap{
-	width: 100%;
-    margin-top: 20px;
-}
-.gender_name{
-	font-size: 25px;
-    font-weight: bold;
+	background-color: #c0c0c0;
 }
 
 /* 전화번호 영역 */
@@ -94,6 +88,7 @@
 	border: 1px solid black;
 	height:31px;
 	padding: 10px 14px;	
+	background-color: #c0c0c0;
 	
 }
 .phone_input{
@@ -101,6 +96,7 @@
 	height:100%;
 	border:none;
 	font-size:28px;
+	background-color: #c0c0c0;
 }
 
 /* 진료 과 영역 */
