@@ -8,6 +8,10 @@
 <meta charset="UTF-8">
 <title>DaeWoo Hospital</title>
 <link rel="stylesheet" href="resources/css/main.css">
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -36,7 +40,7 @@
                     <li><a href="/admin/main">관리자 페이지</a></li>
                 </c:if>                 
                 <li>
-                    <a id="gnb_logout_button">로그아웃</a>
+                    <a href="/member/logout.do">로그아웃</a>
                 </li>
             </c:if>  
                	
@@ -51,6 +55,21 @@
 		</div>
 	</div>
 </div>
-
+<script>
+ 
+    /* gnb_area 로그아웃 버튼 작동 */
+    $("#gnb_logout_button").click(function(){
+        //alert("버튼 작동");
+        $.ajax({
+            type:"POST",
+            url:"/member/logout.do",
+            success:function(data){
+                alert("로그아웃 성공");
+                document.location.reload();     
+            } 
+        }); // ajax 
+    });
+    
+</script>
 </body>
 </html>
