@@ -32,9 +32,15 @@
 
 	</select>
 	
+	<!-- 유저 번호 구하기 -->
+	<select id="memberNum" resultType="int">
+		select memberNum from hos_member where memberPhone = #{memberPhone}
+	</select>
+	
 	<select id="memberLogin" resultType="com.hos.model.MemberVO">
 		
 		select memberNum, memberId, memberPw, memberName, adminck from hos_member where memberId = #{memberId}
 		
 	</select>
+
 </mapper>
