@@ -19,4 +19,6 @@ public interface MemberService {
 
 	// 주민번호 중복 검사
 	public int idnumCheck(String memberIDNum) throws Exception;
+	 /* 로그인 */
+    public MemberVO memberLogin(MemberVO member) throws Exception;
 }

@@ -31,4 +31,10 @@
 		select count(*) from hos_member where memberIDNum = #{memberIDNum}
 
 	</select>
+	
+	<select id="memberLogin" resultType="com.hos.model.MemberVO">
+		
+		select memberNum, memberId, memberPw, memberName, adminck from hos_member where memberId = #{memberId}
+		
+	</select>
 </mapper>

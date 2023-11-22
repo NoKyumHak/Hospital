@@ -37,6 +37,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return membermapper.phoneCheck(memberPhone);
 	}
+	 /* 로그인 */
+    @Override
+    public MemberVO memberLogin(MemberVO member) throws Exception {
+        
+        return membermapper.memberLogin(member);
+    }
 
 	@Override
 	public void memberReserve(CheckVO check) throws Exception {
