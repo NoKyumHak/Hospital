@@ -19,7 +19,7 @@
 		<form id="reserve_form" method="post">
 			<div class="wrap">
 				<div class="subjecet">
-					<span>예약하기</span>
+					<span>예약하기!!</span>
 				</div>
 				<div class="user_wrap">
 					<div class="user_name">이름</div>
