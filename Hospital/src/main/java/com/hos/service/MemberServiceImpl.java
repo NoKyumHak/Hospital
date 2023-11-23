@@ -50,5 +50,9 @@ public class MemberServiceImpl implements MemberService {
 		membermapper.memberReserve(check);
 		
 	}
+	@Override
+	public MemberVO checkGetDetail(MemberVO member) throws Exception {
+		return membermapper.checkGetDetail(member);
+	}
 
 }
