@@ -13,6 +13,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -113,17 +115,20 @@ public class MemberController {
         }
 	}
 
-	// 예약
-
-	@RequestMapping(value = "reserve", method = RequestMethod.GET)
-	public void reserveGET() {
-
-		logger.info("reserve 진입");
-
+	
+	
+	@GetMapping("/reserve")
+	public void checkGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
+		HttpSession session = request.getSession();
+		
+		member = (MemberVO) session.getAttribute("member");
+		
+		logger.info("checkGetDetail......" + member);
+		
+		/* 예약자 정보 */
+		model.addAttribute("reserveDetail", memberservice.checkGetDetail(member));
+		
 	}
-		// 예약 서비스 실행
-
-
 	// 예약 서비스 실행
 	@PostMapping("/reserve")
 	public String reservePOST(CheckVO check, RedirectAttributes rttr) throws Exception {

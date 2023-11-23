@@ -12,6 +12,7 @@ public class CheckServiceImpl implements CheckService{
 	@Autowired
 	CheckMapper checkmapper;
 
+	
 	@Override
 	public void insertCheck(CheckVO check) throws Exception {
 		// TODO Auto-generated method stub

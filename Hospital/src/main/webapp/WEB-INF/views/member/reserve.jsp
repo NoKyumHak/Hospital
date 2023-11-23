@@ -24,7 +24,7 @@
 				<div class="user_wrap">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" name="memberName" readonly="readonly">
+						<input class="user_input" type="hidden" name="memberName" readonly="readonly" value='<c:out value="${reserveDetail.memberNum }"/>'>
 					</div>
 				</div>
 				<div class="idnum_wrap">

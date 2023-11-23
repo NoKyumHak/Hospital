@@ -34,10 +34,9 @@
                 </c:if>
                 <c:if test="${member.adminCk == 2 }">
                     <li><a href="/admin/main">관리자 페이지</a></li>
-                </c:if>                 
-                <li>
-                    <a id="gnb_logout_button">로그아웃</a>
-                </li>
+                </c:if> 
+                <input type="hidden" name="memberNum" value="${member.memberNum}">                
+                <a id="gnb_logout_button">로그아웃</a>
             </c:if>  
                	
 			</div>
