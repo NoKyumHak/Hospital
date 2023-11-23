@@ -26,7 +26,30 @@
     font-weight: 900;
     color: white;
 }
+/* 주의 사항 스타일 */
+.caution_wrap {
+    width: 100%;
+    margin-top: 20px;
+}
 
+.caution_legend {
+    font-size: 25px;
+    font-weight: bold;
+  
+}
+
+#caution {
+    list-style: square;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#caution li {
+    font-size: 18px;
+    line-height: 2rem;
+    padding: 0.4em 0.4em;
+}
 /* 이름 영역 */
 .user_wrap{
 	width: 100%;
