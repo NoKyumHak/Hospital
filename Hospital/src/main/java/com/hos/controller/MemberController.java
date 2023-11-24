@@ -119,9 +119,9 @@ public class MemberController {
 		
 		member = (MemberVO) session.getAttribute("member");
 		
-		logger.info("checkGetDetail......" + member);
-		
 		member = memberservice.checkGetDetail(member);
+		
+		logger.info("checkGetDetail......" + member);
 		
 		//System.out.println(member);
 		/* 예약자 정보 */
