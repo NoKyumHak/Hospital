@@ -58,6 +58,13 @@ public class MemberController {
 		logger.info("로그인 페이지 진입");
 
 	}
+	
+	// 로그인 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void mypageGET() {
+
+		logger.info("마이 페이지 진입");
+	}
 
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
@@ -112,7 +119,8 @@ public class MemberController {
             
         }
 	}
-
+	
+	// 멤버 정보 예약 페이지로 가져오기
 	@GetMapping("/reserve")
 	public void checkGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
 		HttpSession session = request.getSession();

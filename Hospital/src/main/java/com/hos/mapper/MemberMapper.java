@@ -18,7 +18,7 @@ public interface MemberMapper {
 	
 	// 예약하기
 	public void memberReserve(CheckVO check);
-	 /* 로그인 */
+	// 로그인
     public MemberVO memberLogin(MemberVO member);
     
 	/* 예약 페이지에 값 가져오기 */
