@@ -77,8 +77,6 @@ public class MemberController {
 
 	}
 
-	// 예약 페이지 진입
-
 	/* 로그인 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception {
