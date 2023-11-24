@@ -123,8 +123,11 @@ public class MemberController {
 		
 		logger.info("checkGetDetail......" + member);
 		
+		member = memberservice.checkGetDetail(member);
+		
+		System.out.println(member);
 		/* 예약자 정보 */
-		model.addAttribute("reserveDetail", memberservice.checkGetDetail(member));
+		model.addAttribute("reserveDetail", member);
 		
 	}
 	// 예약 서비스 실행
@@ -246,5 +249,19 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		return num;
 	}
+	  /* 메인페이지 로그아웃 */
+    @RequestMapping(value="logout.do", method=RequestMethod.GET)
+    public String logoutMainGET(HttpServletRequest request) throws Exception{
+        
+        logger.info("logoutMainGET메서드 진입");
+        
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
+        return "redirect:/main";        
+        
+    }
+	
 
 }

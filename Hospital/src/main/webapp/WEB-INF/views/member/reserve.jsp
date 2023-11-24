@@ -21,22 +21,34 @@
 				<div class="subjecet">
 					<span>예약하기!!</span>
 				</div>
+				<div class="caution_wrap">
+					<div class="caution_fieldset">
+						<fieldset id="caution">
+							<legend>*주의 사항*</legend>
+								<list>
+									<li>당일 예약시간 20분 전에 내원하여 원무팀 수납/창구 방문 접수 후 진료 받으시기 바랍니다</li>
+									<li>예약 변경/취소는 진료 1일전까지 꼭 연락 주시기 바랍니다.</li>
+								</list>
+						</fieldset>
+					</div>
+				</div>
 				<div class="user_wrap">
+				<input type="hidden" name="memberNum" value="${reserveDetail.memberNum}">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" type="hidden" name="memberName" readonly="readonly" value='<c:out value="${reserveDetail.memberNum }"/>'>
+						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName }">
 					</div>
 				</div>
 				<div class="idnum_wrap">
 					<div class="idnum_name">주민 등록 번호</div>
 					<div class="idnum_input_box">
-						<input class="idnum_input" name="memberIDNum" maxlength="14" readonly="readonly">
+						<input class="idnum_input" name="memberIDNum" maxlength="14" value="${reserveDetail.memberIDNum}" readonly="readonly">
 					</div>
 				</div>
 				<div class="phone_wrap">
 					<div class="phone_name">전화 번호</div>
 					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone" readonly="readonly">
+						<input class="phone_input" name="memberPhone" readonly="readonly" value="${reserveDetail.memberPhone}">
 					</div>
 				</div>
 				<div class="subject_wrap">
@@ -56,17 +68,16 @@
 		</form>
 	</div>
 	<script>
-	
-	let checkForm = {};
-	
-	/* 등록 버튼 */
-	$("#reserve_button").click(function(){ 
-		
-		e.preventDefault();
-		$("#reserve_form").submit();
-		
-	});
-	   
+		let checkForm = {};
+
+		/* 등록 버튼 */
+		$("#reserve_button").click(function() {
+
+			e.preventDefault();
+			$("#reserve_form").submit();
+
+		});
+
 		$(document).ready(function() {
 			//예약 버튼(예약 기능 작동)
 			$(".reserve_button").click(function() {
