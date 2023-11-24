@@ -20,7 +20,7 @@ public interface MemberService {
 	// 예약
 	public void memberReserve(CheckVO check) throws Exception;
 	
-	 /* 로그인 */
+	// 로그인
     public MemberVO memberLogin(MemberVO member) throws Exception;
     
     public MemberVO checkGetDetail(MemberVO member) throws Exception;
