@@ -130,7 +130,7 @@ public class MemberController {
 	}
 	// 예약 서비스 실행
 	@PostMapping("/reserve")
-	public String reservePOST(CheckVO check, RedirectAttributes rttr) throws Exception {
+	public String reservePOST(CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
 		
 		logger.info("reservePOST......" + check);
 		
@@ -138,7 +138,8 @@ public class MemberController {
 		
 		logger.info("reserve Service 성공");
 		
-		return "redirect:/main";
+		return null;
+		
 	}
 	
 	// 아이디 중복 검사

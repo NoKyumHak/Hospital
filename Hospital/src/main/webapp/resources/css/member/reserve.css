@@ -6,12 +6,12 @@
 
 /* 화면 전체 렙 */
 .wrapper{
-	width: 1900px;	
+	width: 100%;	
 }
 
 /* content 랩 */
 .wrap{
-	width : 800px;
+	width : 80%;
 	margin: auto;
 }
 /* 페이지 제목 */
@@ -235,7 +235,7 @@ fieldset {
 }
 
 .ui-datepicker-trigger {						/* 캘린더 css 설정 */
-    margin-left: 15px;
+    margin-left: 5px;
     width: 14%;
     height: 52px;
     font-weight: 600;

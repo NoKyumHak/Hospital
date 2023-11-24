@@ -20,7 +20,7 @@
 		<form id="reserve_form" method="post">
 			<div class="wrap">
 				<div class="subjecet">
-					<span>예약하기!!</span>
+					<span>진료 예약</span>
 				</div>
 				<div class="caution_wrap">
 					<div class="caution_fieldset">
@@ -87,16 +87,7 @@
 		</form>
 	</div>
 	<script>
-		let checkForm = {};
-
-		/* 등록 버튼 */
-		$("#reserve_button").click(function() {
-
-			e.preventDefault();
-			$("#reserve_form").submit();
-
-		});
-
+		
 		$(document).ready(function() {
 			//예약 버튼(예약 기능 작동)
 			$(".reserve_button").click(function() {

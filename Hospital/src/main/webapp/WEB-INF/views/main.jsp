@@ -49,6 +49,9 @@
       </div>
       <div class="navi_bar_area">
          <h1>네비게이션 바 / 병원 소개 , 의료진 정보 , 예약 , 진단서발급 </h1>
+         <a href="javascript:void(window.open
+         	('member/reserve', '진료 예약','width=800, height=600'))">예약
+		</a>
       </div>
       <div class="content_area">
          <h1>각 네비에 맞는 컨텐츠 메인에서는 병원에 대한 정보</h1>
@@ -69,6 +72,9 @@
             } 
         }); // ajax 
     });
+    
+
+    
 </script>
 </body>
 </html>
