@@ -24,7 +24,8 @@ public class CheckVO {
 	private Date checkDate;
 
 	/* 시간 */
-	private Timestamp checkTime;
+	@DateTimeFormat(pattern = "HH-mm")
+	private String checkTime;
 	
 	/* 전화번호(hos_member - memberPhone 참조) */
 	private String memberPhone;

@@ -9,8 +9,7 @@
 	<insert id="insertCheck">
 
 		INSERT INTO hos_check (memberNum, memberName, subject, checkDate, checkTime, memberPhone)
-		VALUES (#{memberNum}, #{memberName}, #{subject}, #{checkDate}, #{checkTime,
-		jdbcType=TIMESTAMP}, #{memberPhone})
+		VALUES (#{memberNum}, #{memberName}, #{subject}, #{checkDate}, #{checkTime, jdbcType=TIMESTAMP}, #{memberPhone})
 
 	</insert>
 

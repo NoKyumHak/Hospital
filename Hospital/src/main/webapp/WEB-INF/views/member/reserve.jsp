@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,12 +55,30 @@
 				<div class="subject_wrap">
 					<div class="subject_name">진료 과</div>
 					<div class="subject_input_box">
-						<input class="subject_input" name="subject">
+						<select class="subject_input" name="subject">
+							<option value="정형외과">정형외과</option>
+						</select>
 					</div>
 				</div>
 				<div class="checkDate_wrap">
 					<div class="checkDate_name">진료 희망일</div>
 					<input name="checkDate" autocomplete="off" readonly="readonly">
+				</div>
+				<div class="checkTime_wrap">
+					<div class="checkTime_name">진료 희망시간</div>
+					<div class="checkTime_input_box">
+						<select class="checkTime_input" name="checkTime">
+            				<option value="09:00">9:00 AM</option>
+            				<option value="10:00">10:00 AM</option>
+            				<option value="11:00">11:00 AM</option>
+            				<option value="12:00">12:00 AM</option>
+            				<option value="13:00">1:00 PM</option>
+            				<option value="12:00">2:00 PM</option>
+            				<option value="15:00">3:00 PM</option>
+            				<option value="16:00">4:00 PM</option>
+            				<option value="17:00">5:00 PM</option>
+						</select>
+					</div>
 				</div>
 				<div class="reserve_button_wrap">
 					<input type="button" class="reserve_button" value="예약하기">

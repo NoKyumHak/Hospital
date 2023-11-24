@@ -113,8 +113,6 @@ public class MemberController {
         }
 	}
 
-	
-	
 	@GetMapping("/reserve")
 	public void checkGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
 		HttpSession session = request.getSession();
@@ -130,7 +128,7 @@ public class MemberController {
 		model.addAttribute("reserveDetail", member);
 		
 	}
-	// 예약 서비스 실행1
+	// 예약 서비스 실행
 	@PostMapping("/reserve")
 	public String reservePOST(CheckVO check, RedirectAttributes rttr) throws Exception {
 		
