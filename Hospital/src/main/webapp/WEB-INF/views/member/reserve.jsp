@@ -36,7 +36,7 @@
 				<input type="hidden" name="memberNum" value="${reserveDetail.memberNum}">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName }">
+						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName}">
 					</div>
 				</div>
 				<div class="idnum_wrap">

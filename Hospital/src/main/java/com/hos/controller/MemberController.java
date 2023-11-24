@@ -127,12 +127,12 @@ public class MemberController {
 		
 		member = memberservice.checkGetDetail(member);
 		
-		System.out.println(member);
+		//System.out.println(member);
 		/* 예약자 정보 */
 		model.addAttribute("reserveDetail", member);
 		
 	}
-	// 예약 서비스 실행
+	// 예약 서비스 실행1
 	@PostMapping("/reserve")
 	public String reservePOST(CheckVO check, RedirectAttributes rttr) throws Exception {
 		
