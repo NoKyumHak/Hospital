@@ -13,6 +13,9 @@ public class CheckVO {
 	/* 인원(hos_member - memberNum 참조) */
 	private int memberNum;
 	
+	/* 이름 */
+	private String memberName;
+	
 	/* 진료 과 */
 	private String subject;
 	
@@ -25,6 +28,14 @@ public class CheckVO {
 	
 	/* 전화번호(hos_member - memberPhone 참조) */
 	private String memberPhone;
+	
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 
 	public int getCheckNum() {
 		return checkNum;
@@ -76,8 +87,9 @@ public class CheckVO {
 
 	@Override
 	public String toString() {
-		return "CheckVO [checkNum=" + checkNum + ", memberNum=" + memberNum + ", subject=" + subject + ", checkDate="
-				+ checkDate + ", checkTime=" + checkTime + ", memberPhone=" + memberPhone + "]";
+		return "CheckVO [checkNum=" + checkNum + ", memberNum=" + memberNum + ", memberName=" + memberName
+				+ ", subject=" + subject + ", checkDate=" + checkDate + ", checkTime=" + checkTime + ", memberPhone="
+				+ memberPhone + "]";
 	}
 	
 }
