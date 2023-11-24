@@ -125,8 +125,11 @@ public class MemberController {
 		
 		logger.info("checkGetDetail......" + member);
 		
+		member = memberservice.checkGetDetail(member);
+		
+		System.out.println(member);
 		/* 예약자 정보 */
-		model.addAttribute("reserveDetail", memberservice.checkGetDetail(member));
+		model.addAttribute("reserveDetail", member);
 		
 	}
 	// 예약 서비스 실행
