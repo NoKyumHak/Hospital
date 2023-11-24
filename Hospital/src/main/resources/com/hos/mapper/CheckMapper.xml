@@ -8,10 +8,8 @@
 	<!-- 예약 버튼 -->
 	<insert id="insertCheck">
 
-		INSERT INTO hos_check (memberNum, subject, checkDate, checkTime,
-		memberPhone)
-		VALUES (#{memberNum}, #{subject}, #{checkDate}, #{checkTime,
-		jdbcType=TIMESTAMP}, #{memberPhone})
+		INSERT INTO hos_check (memberNum, memberName, subject, checkDate, checkTime, memberPhone)
+		VALUES (#{memberNum}, #{memberName}, #{subject}, #{checkDate}, #{checkTime, jdbcType=TIMESTAMP}, #{memberPhone})
 
 	</insert>
 
