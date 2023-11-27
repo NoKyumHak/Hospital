@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/resources/css/mypage/update.css">
+<link rel="stylesheet" href="/resources/css/mypage/mypageUpdate.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"
