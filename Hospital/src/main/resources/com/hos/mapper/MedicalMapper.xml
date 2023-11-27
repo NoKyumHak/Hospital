@@ -6,4 +6,7 @@
 	<select id="reservCheck" resultType="com.hos.model.CheckVO">
 		select * from hos_check
 	</select>
+	<insert id="recordInsert">
+		insert into hos_record (doctorNum, memberNum, recordContent, recordDate, dsDate) values (1, #{memberNum}, #{recordContent}, sysdate, sysdate)
+	</insert>
 </mapper>

@@ -72,9 +72,12 @@
             } 
         }); // ajax 
     });
+<<<<<<< HEAD
+=======
     
 
     
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 </script>
 </body>
 </html>
