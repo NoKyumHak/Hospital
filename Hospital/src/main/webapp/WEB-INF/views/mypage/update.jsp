@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<form id="reserve_form" method="post">
+		<form id="mypageUpdate_form" method="post">
 			<div class="wrap">
 				<div class="subjecet">
 					<span>마이페이지</span>
