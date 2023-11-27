@@ -50,12 +50,10 @@ public class MemberServiceImpl implements MemberService {
 		membermapper.memberReserve(check);
 		
 	}
-<<<<<<< HEAD
-=======
+
 	@Override
 	public MemberVO checkGetDetail(MemberVO member) throws Exception {
 		return membermapper.checkGetDetail(member);
 	}
 
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 }
