@@ -66,13 +66,6 @@ public class MemberController {
 		logger.info("마이 페이지 진입");
 	}
 	
-	// 마이 페이지 - 수정 페이지 이동
-	@RequestMapping(value = "mypage", method = RequestMethod.GET)
-	public void updateGET() {
-
-		logger.info("마이 페이지 진입");
-	}
-
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
