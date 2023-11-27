@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HospitalController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HospitalController.class);
-	
-	//메인 페이지 이동
-		@RequestMapping(value = "/main", method = RequestMethod.GET)
-		public void mainPageGET() {
-			
-			logger.info("메인 페이지 진입");
-			
-		}
+
+	// 메인 페이지 이동
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public void mainPageGET() {
+
+		logger.info("메인 페이지 진입");
+
+	}
 }
