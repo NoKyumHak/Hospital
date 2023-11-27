@@ -264,19 +264,7 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		return num;
 	}
-<<<<<<< HEAD
 	
-	/* 메인페이지 로그아웃 */
-    @RequestMapping(value="logout.do", method=RequestMethod.GET)
-    public String logoutMainGET(HttpServletRequest request) throws Exception{
-    	logger.info("logoutMainGET메서드 진입");
-        
-        HttpSession session = request.getSession();
-        
-        session.invalidate();
-        
-        return "redirect:/main";
-    }
     
     /* 비동기방식 로그아웃 메서드 */
     @RequestMapping(value="logout.do", method=RequestMethod.POST)
@@ -290,7 +278,6 @@ public class MemberController {
         session.invalidate();
         
     }
-=======
 	  /* 메인페이지 로그아웃 */
     @RequestMapping(value="logout.do", method=RequestMethod.GET)
     public String logoutMainGET(HttpServletRequest request) throws Exception{
@@ -304,7 +291,6 @@ public class MemberController {
         return "redirect:/main";        
         
     }
-	
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
+
 
 }
