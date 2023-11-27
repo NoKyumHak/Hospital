@@ -59,9 +59,6 @@ public class MemberController {
 		logger.info("로그인 페이지 진입");
 
 	}
-<<<<<<< HEAD
-
-=======
 	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
@@ -70,7 +67,6 @@ public class MemberController {
 		logger.info("마이 페이지 진입");
 	}
 	
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
