@@ -22,15 +22,8 @@ public interface MemberService {
 	
 	// 로그인
     public MemberVO memberLogin(MemberVO member) throws Exception;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital
     // 예약 
     public MemberVO checkGetDetail(MemberVO member) throws Exception;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital
 }
