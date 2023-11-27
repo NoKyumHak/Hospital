@@ -23,5 +23,6 @@ public interface MemberService {
 	// 로그인
     public MemberVO memberLogin(MemberVO member) throws Exception;
     
+    // 예약 
     public MemberVO checkGetDetail(MemberVO member) throws Exception;
 }
