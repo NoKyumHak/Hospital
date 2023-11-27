@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/resources/css/member/reserve.css">
+<link rel="stylesheet" href="/resources/css/mypage/update.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -28,6 +28,19 @@
 						</fieldset>
 					</div>
 				</div>
+				<div class="user_wrap">
+				<input type="hidden" name="memberNum" value="${reserveDetail.memberNum}">
+					<div class="user_name">이름</div>
+					<div class="user_input_box">
+						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName}">
+					</div>
+				</div>
+				<div class="phone_wrap">
+					<div class="phone_name">전화 번호</div>
+					<div class="phone_input_box">
+						<input class="phone_input" name="memberPhone" value="${reserveDetail.memberPhone}">
+					</div>
+				</div>
 				<div class="id_wrap">
 				<input type="hidden" name="memberId" value="${reserveDetail.memberId}">
 					<div class="id_name">아이디</div>
@@ -39,26 +52,13 @@
 				<input type="hidden" name="memberPw" value="${reserveDetail.memberPw}">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" name="memberPw" readonly="readonly" value="${reserveDetail.memberPw}">
+						<input class="pw_input" name="memberPw" value="${reserveDetail.memberPw}">
 					</div>
 				</div>
 				<div class="email_wrap">
-					<div class="email_name">전화 번호</div>
+					<div class="email_name">이메일</div>
 					<div class="email_input_box">
-						<input class="email_input" name="memberEmail" readonly="readonly" value="${reserveDetail.memberEmail}">
-					</div>
-				</div>
-				<div class="user_wrap">
-				<input type="hidden" name="memberNum" value="${reserveDetail.memberNum}">
-					<div class="user_name">이름</div>
-					<div class="user_input_box">
-						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName}">
-					</div>
-				</div>
-				<div class="phone_wrap">
-					<div class="phone_name">전화 번호</div>
-					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone" readonly="readonly" value="${reserveDetail.memberPhone}">
+						<input class="email_input" name="memberEmail" value="${reserveDetail.memberEmail}">
 					</div>
 				</div>
 				<div class="reserve_button_wrap">
