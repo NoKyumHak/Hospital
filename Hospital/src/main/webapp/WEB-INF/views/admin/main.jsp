@@ -21,10 +21,5 @@
 				</div>
 				
 		 <%@include file="../includes/admin/footer.jsp" %>		
-			
-
-
-
-
 </body>
 </html>

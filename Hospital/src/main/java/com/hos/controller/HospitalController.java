@@ -24,6 +24,13 @@ public class HospitalController {
 	public void testPageGET() {
 
 		logger.info("test");
+	}
+
+	// 메인 페이지 - 의료진 정보 페이지 이동
+	@RequestMapping(value = "/medicalinfo", method = RequestMethod.GET)
+	public void medicalinfoPageGET() {
+
+		logger.info("메인 페이지 - 의료진 정보 페이지 진입");
 
 	}
 }

@@ -21,7 +21,6 @@ public interface MemberMapper {
 	
 	// 로그인
     public MemberVO memberLogin(MemberVO member);
-    
 
 	/* 예약 페이지에 값 가져오기 */
 	public MemberVO checkGetDetail(MemberVO member);
