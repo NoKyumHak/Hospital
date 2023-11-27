@@ -71,5 +71,4 @@ public class MemberVO {
 				+ ", memberEmail=" + memberEmail + ", gender=" + gender + ", adminCk=" + adminCk + "]";
 	}
 	
-	
 }

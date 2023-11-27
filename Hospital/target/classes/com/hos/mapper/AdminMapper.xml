@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hos.mapper.AdminMapper">
+	<!-- 의료진 등록 -->
+	<insert id="doctorEnroll" useGeneratedKeys="true" keyProperty="DOCTORNUM">
+		<selectKey resultType="int" keyProperty="DOCTORNUM" order="AFTER">
+		
+			SELECT ISEQ$$_77855.nextval from dual
+
+		</selectKey>
+		insert into hos_doctor(DOCTORNAME, DOCTORCONTENT, SUBJECT)
+		values( #{DOCTORNAME}, #{DOCTORCONTENT}, #{SUBJECT} )
+	</insert>
+
+	<!-- 이미지 등록 -->
+	<insert id="imageEnroll">
+	
+		insert into hos_image(doctorNum, fileName, uploadPath, uuid) 
+		values (#{DOCTORNUM}, #{fileName}, #{uploadPath}, #{uuid})
+
+	</insert>
+
+</mapper>

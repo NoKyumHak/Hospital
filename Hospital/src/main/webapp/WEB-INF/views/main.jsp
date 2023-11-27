@@ -31,6 +31,7 @@
          <c:if test = "${member == null}">
             <div class="login_button"><a href="/member/login">로그인</a></div>
             <span><a href="/member/join">회원가입</a></span>
+             <span><a href="/admin/main">관리자페이지</a></span>
          </c:if>
          <c:if test="${member != null }">   
                   <c:if test="${member.adminCk == 1 }">
@@ -72,9 +73,12 @@
             } 
         }); // ajax 
     });
+<<<<<<< HEAD
+=======
     
 
     
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 </script>
 </body>
 </html>

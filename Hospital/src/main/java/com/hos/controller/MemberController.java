@@ -50,6 +50,7 @@ public class MemberController {
 		logger.info("회원가입 페이지 진입");
 
 	}
+	
 
 	// 로그인 페이지 이동
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -58,7 +59,18 @@ public class MemberController {
 		logger.info("로그인 페이지 진입");
 
 	}
+<<<<<<< HEAD
 
+=======
+	
+	// 마이 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void mypageGET() {
+
+		logger.info("마이 페이지 진입");
+	}
+	
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
@@ -249,6 +261,20 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		return num;
 	}
+	
+    
+    /* 비동기방식 로그아웃 메서드 */
+    @RequestMapping(value="logout.do", method=RequestMethod.POST)
+    @ResponseBody
+    public void logoutPOST(HttpServletRequest request) throws Exception{
+        
+        logger.info("비동기 로그아웃 메서드 진입");
+        
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
+    }
 	  /* 메인페이지 로그아웃 */
     @RequestMapping(value="logout.do", method=RequestMethod.GET)
     public String logoutMainGET(HttpServletRequest request) throws Exception{
@@ -262,6 +288,6 @@ public class MemberController {
         return "redirect:/main";        
         
     }
-	
+
 
 }
