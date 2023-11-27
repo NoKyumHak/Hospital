@@ -22,12 +22,12 @@
                       <li >
                           <a class="admin_list_01" href="/medical/reservList">예약 확인</a>
                       </li>
-                      <li>
-                          <a class="admin_list_02" href="/admin/goodsManage">상품 관리</a>
-                      </li>
                       <lI>
-                          <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>                            
+                          <a class="admin_list_02" href="/medical/recordInsert">진료 기록 등록</a>                            
                       </lI>
+                      <li>
+                          <a class="admin_list_03" href="/admin/goodsManage">상품 관리</a>
+                      </li>
                       <lI>
                           <a class="admin_list_04" href="/admin/authorManage">작가 관리</a>                            
                       </lI>
