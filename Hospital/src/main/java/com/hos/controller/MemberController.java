@@ -13,12 +13,17 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
+import com.hos.service.CheckService;
 import com.hos.service.MemberService;
 
 @Controller
@@ -27,6 +32,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberservice;
 
+	@Autowired
+	private CheckService checkservice;
+	
 	@Autowired
 	private JavaMailSender mailSender;
 
@@ -50,6 +58,20 @@ public class MemberController {
 
 		logger.info("로그인 페이지 진입");
 
+	}
+	
+	// 마이 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void mypageGET() {
+
+		logger.info("마이 페이지 진입");
+	}
+	
+	// 마이 페이지 - 수정 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void updateGET() {
+
+		logger.info("마이 페이지 진입");
 	}
 
 	// 회원가입
@@ -105,17 +127,37 @@ public class MemberController {
             
         }
 	}
-
-	// 예약
-	@RequestMapping(value = "reserve", method = RequestMethod.GET)
-	public void reserveGET() {
-
-		logger.info("reserve 진입");
-
-		// 예약 서비스 실행
-
+	
+	// 멤버 정보 예약 페이지로 가져오기
+	@GetMapping("/reserve")
+	public void checkGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
+		HttpSession session = request.getSession();
+		
+		member = (MemberVO) session.getAttribute("member");
+		
+		member = memberservice.checkGetDetail(member);
+		
+		logger.info("checkGetDetail......" + member);
+		
+		//System.out.println(member);
+		/* 예약자 정보 */
+		model.addAttribute("reserveDetail", member);
+		
 	}
-
+	// 예약 서비스 실행
+	@PostMapping("/reserve")
+	public String reservePOST(CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
+		
+		logger.info("reservePOST......" + check);
+		
+		checkservice.insertCheck(check);
+		
+		logger.info("reserve Service 성공");
+		
+		return null;
+		
+	}
+	
 	// 아이디 중복 검사
 	@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 	@ResponseBody
@@ -222,6 +264,7 @@ public class MemberController {
 		String num = Integer.toString(checkNum);
 		return num;
 	}
+<<<<<<< HEAD
 	
 	/* 메인페이지 로그아웃 */
     @RequestMapping(value="logout.do", method=RequestMethod.GET)
@@ -247,5 +290,21 @@ public class MemberController {
         session.invalidate();
         
     }
+=======
+	  /* 메인페이지 로그아웃 */
+    @RequestMapping(value="logout.do", method=RequestMethod.GET)
+    public String logoutMainGET(HttpServletRequest request) throws Exception{
+        
+        logger.info("logoutMainGET메서드 진입");
+        
+        HttpSession session = request.getSession();
+        
+        session.invalidate();
+        
+        return "redirect:/main";        
+        
+    }
+	
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 
 }

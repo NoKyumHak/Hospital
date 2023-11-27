@@ -13,9 +13,15 @@ public class CheckVO {
 	/* 인원(hos_member - memberNum 참조) */
 	private int memberNum;
 	
+<<<<<<< HEAD
 	/* 환자 이름 */
 	private String memberName;
 
+=======
+	/* 이름 */
+	private String memberName;
+	
+>>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 	/* 진료 과 */
 	private String subject;
 	
@@ -24,10 +30,18 @@ public class CheckVO {
 	private Date checkDate;
 
 	/* 시간 */
-	private Timestamp checkTime;
+	private String checkTime;
 	
 	/* 전화번호(hos_member - memberPhone 참조) */
 	private String memberPhone;
+	
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
 
 	public int getCheckNum() {
 		return checkNum;
@@ -69,11 +83,11 @@ public class CheckVO {
 		this.checkDate = checkDate;
 	}
 
-	public Timestamp getCheckTime() {
+	public String getCheckTime() {
 		return checkTime;
 	}
 
-	public void setCheckTime(Timestamp checkTime) {
+	public void setCheckTime(String checkTime) {
 		this.checkTime = checkTime;
 	}
 

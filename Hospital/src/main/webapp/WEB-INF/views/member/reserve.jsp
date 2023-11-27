@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,42 +20,64 @@
 		<form id="reserve_form" method="post">
 			<div class="wrap">
 				<div class="subjecet">
-					<span>예약하기</span>
+					<span>진료 예약</span>
+				</div>
+				<div class="caution_wrap">
+					<div class="caution_fieldset">
+						<fieldset id="caution">
+							<legend>*주의 사항*</legend>
+								<list>
+									<li>당일 예약시간 20분 전에 내원하여 원무팀 수납/창구 방문 접수 후 진료 받으시기 바랍니다</li>
+									<li>예약 변경/취소는 진료 1일전까지 꼭 연락 주시기 바랍니다.</li>
+								</list>
+						</fieldset>
+					</div>
 				</div>
 				<div class="user_wrap">
+				<input type="hidden" name="memberNum" value="${reserveDetail.memberNum}">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" name="memberName">
+						<input class="user_input" name="memberName" readonly="readonly" value="${reserveDetail.memberName}">
+					</div>
+				</div>
+				<div class="idnum_wrap">
+					<div class="idnum_name">주민 등록 번호</div>
+					<div class="idnum_input_box">
+						<input class="idnum_input" name="memberIDNum" maxlength="14" value="${reserveDetail.memberIDNum}" readonly="readonly">
 					</div>
 				</div>
 				<div class="phone_wrap">
 					<div class="phone_name">전화 번호</div>
 					<div class="phone_input_box">
-						<input class="phone_input" name="memberPhone">
-					</div>
-				</div>
-				<div class="gender_wrap">
-					<div class="gender_name">성별</div>
-					<div class="gender_input_box">
-						<fieldset>
-							<label> <input type="radio" id="gender_input"
-								name="gender" value="1" checked="checked" /> <span>남자</span>
-							</label> <label> <input type="radio" id="gender_input"
-								name="gender" value="0" /> <span>여자</span>
-							</label>
-						</fieldset>
+						<input class="phone_input" name="memberPhone" readonly="readonly" value="${reserveDetail.memberPhone}">
 					</div>
 				</div>
 				<div class="subject_wrap">
 					<div class="subject_name">진료 과</div>
 					<div class="subject_input_box">
-						<input class="subject_input" name="subject">
+						<select class="subject_input" name="subject">
+							<option value="정형외과">정형외과</option>
+						</select>
 					</div>
 				</div>
 				<div class="checkDate_wrap">
 					<div class="checkDate_name">진료 희망일</div>
-					<div class="checkDate_input_box">
-						<input name="checkDate" autocomplete="off" readonly="readonly">
+					<input name="checkDate" autocomplete="off" readonly="readonly">
+				</div>
+				<div class="checkTime_wrap">
+					<div class="checkTime_name">진료 희망시간</div>
+					<div class="checkTime_input_box">
+						<select class="checkTime_input" name="checkTime">
+            				<option value="09:00">9:00 AM</option>
+            				<option value="10:00">10:00 AM</option>
+            				<option value="11:00">11:00 AM</option>
+            				<option value="12:00">12:00 AM</option>
+            				<option value="13:00">1:00 PM</option>
+            				<option value="12:00">2:00 PM</option>
+            				<option value="15:00">3:00 PM</option>
+            				<option value="16:00">4:00 PM</option>
+            				<option value="17:00">5:00 PM</option>
+						</select>
 					</div>
 				</div>
 				<div class="reserve_button_wrap">
@@ -64,11 +87,12 @@
 		</form>
 	</div>
 	<script>
+		
 		$(document).ready(function() {
 			//예약 버튼(예약 기능 작동)
 			$(".reserve_button").click(function() {
 				$("#reserve_form").attr("action", "/member/reserve");
-				$("##reserve_form").submit();
+				$("#reserve_form").submit();
 			});
 		});
 
