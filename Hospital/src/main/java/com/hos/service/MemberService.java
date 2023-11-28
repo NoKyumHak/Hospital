@@ -24,8 +24,11 @@ public interface MemberService {
     public MemberVO memberLogin(MemberVO member) throws Exception;
     
     // 예약 페이지에 멤버 정보 전달
+
+    // 예약 
     public MemberVO checkGetDetail(MemberVO member) throws Exception;
     
     // 마이 페이지에 멤버 정보 전달
 	public MemberVO mypageGetDetail(MemberVO member) throws Exception;
+
 }
