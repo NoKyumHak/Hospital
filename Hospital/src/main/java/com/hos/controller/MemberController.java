@@ -59,6 +59,7 @@ public class MemberController {
 		logger.info("로그인 페이지 진입");
 
 	}
+
 	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)

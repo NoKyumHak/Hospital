@@ -3,8 +3,13 @@ package com.hos.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class HospitalController {
@@ -19,12 +24,7 @@ public class HospitalController {
 
 	}
 
-	// 메인 페이지 이동
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public void testPageGET() {
-
-		logger.info("test");
-	}
+	
 
 	// 메인 페이지 - 의료진 정보 페이지 이동
 	@RequestMapping(value = "/medicalinfo", method = RequestMethod.GET)
@@ -33,4 +33,7 @@ public class HospitalController {
 		logger.info("메인 페이지 - 의료진 정보 페이지 진입");
 
 	}
+	
+	
+	
 }

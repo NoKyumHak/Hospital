@@ -104,4 +104,13 @@ public class MedicalController {
 		
 		return "redirect:/medical/main";
 	}
+	
+
+	// 메인 페이지 - 의료진 정보 페이지 이동
+		@RequestMapping(value = "/goodsDetail", method = RequestMethod.GET)
+		public void goodsDetailPageGET() {
+
+			logger.info("메인 페이지 - 의료진 정보 페이지 진입");
+
+		}
 }
