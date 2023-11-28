@@ -39,11 +39,16 @@
 
 	</select>
 	
-	
 	<select id="memberLogin" resultType="com.hos.model.MemberVO">
 		
 		select memberNum, memberId, memberPw, memberName, adminck from hos_member where memberId = #{memberId}
 		
 	</select>
+	
+	<update id="mypageModify">
+	
+		update hos_member set memberName = #{memberName}, memberId = #{memberId}, memberPhone = #{memberPhone}, memberPw = #{memberPw}, memberEmail = #{memberEmail}
+	
+	</update>
 
 </mapper>

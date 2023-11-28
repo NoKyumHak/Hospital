@@ -28,4 +28,8 @@ public interface MemberService {
     
     // 마이 페이지에 멤버 정보 전달
 	public MemberVO mypageGetDetail(MemberVO member) throws Exception;
+	
+	// 내 정보 수정
+	public int mypageModify(MemberVO member) throws Exception;
+
 }

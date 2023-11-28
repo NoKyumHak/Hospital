@@ -27,5 +27,8 @@ public interface MemberMapper {
 	
 	// 마이 페이지에 멤버 값 가져오기
 	public MemberVO mypageGetDetail(MemberVO member);
+	
+	// 개인 정보 수정
+	public int mypageModify(MemberVO member);
 
 }
