@@ -29,7 +29,7 @@
          </div>
          <div class="login_area">
          <c:if test = "${member == null}">
-            <div class="login_button"><a href="/member/login">로그인</a></div>
+            <div class="login_button"><a href="/member/login"><img src="resources/img/login.png" width="100%" height="100%"></a></div>
             <span><a href="/member/join">회원가입</a></span>
              <span><a href="/admin/main">관리자페이지</a></span>
          </c:if>
