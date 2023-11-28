@@ -48,25 +48,22 @@ public class MemberController {
 	public void joinGET() {
 
 		logger.info("회원가입 페이지 진입");
-
 	}
 	
-
 	// 로그인 페이지 이동
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public void loginGET() {
 
 		logger.info("로그인 페이지 진입");
-
 	}
 
-	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public void mypageGET() {
 
 		logger.info("마이 페이지 진입");
 	}
+	
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
@@ -82,7 +79,6 @@ public class MemberController {
 		memberservice.memberJoin(member);
 
 		return "redirect:/main";
-
 	}
 
 	/* 로그인 */
@@ -284,6 +280,5 @@ public class MemberController {
         return "redirect:/main";        
         
     }
-
 
 }
