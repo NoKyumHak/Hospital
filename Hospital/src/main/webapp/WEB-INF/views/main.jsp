@@ -22,10 +22,10 @@
       </div>
       <div class="top_area">
          <div class="logo_area">
-            <h1>로고</h1>
+            <img src="resources/img/main1.png" width="100%" height="100%">
          </div>
          <div class="land_area">
-            <h1>조경도</h1>
+            <img src="resources/img/main2.png" width="100%" height="100%">
          </div>
          <div class="login_area">
          <c:if test = "${member == null}">
@@ -43,19 +43,34 @@
                 <li>
                     <a href="/member/logout.do">로그아웃</a>
                 </li>
+                <li>
+                	<a href="/mypage/mypage">마이페이지</a>
+                </li>
             </c:if>  
                   
          </div>
          <div class="clearfix"></div>         
       </div>
-      <div class="navi_bar_area">
-         <h1>네비게이션 바 / 병원 소개 , 의료진 정보 , 예약 , 진단서발급 </h1>
-         <a href="javascript:void(window.open
+      <nav id="nav1">
+    <ul>
+      <li>대우 병원 입니다</li>
+      <li><a href="/main">인사말</a></li>
+      <li><a href="/main/medical">의료진 정보</a></li>
+      <li><a href="/main/way">오시는길</a></li>
+      <li><a href="javascript:void(window.open
          	('member/reserve', '진료 예약','width=800, height=600'))">예약
-		</a>
-      </div>
+		</a></li>
+      <li><a href="main/info">병원 소개</a></li>
+    </ul>
+  </nav>         
       <div class="content_area">
-         <h1>각 네비에 맞는 컨텐츠 메인에서는 병원에 대한 정보</h1>
+         <h1>인사말</h1><br>
+         <h2>안녕하십니까?
+		<br>대우병원 홈페이지를
+		<br>방문해주셔서 감사드립니다.</h2>
+		<br>
+		<h3>대우 병원은 진료시스템을 개선하고, 쾌적한 시설 환경을 마련하는 등 <br>국민 여러분께서 최상의 의료서비스를 받으실 수 있도록<br> 끝임없는 고민과 노력을 기울여 나가겠습니다.</h3>
+         
       </div>
    </div>
 </div>
@@ -73,12 +88,6 @@
             } 
         }); // ajax 
     });
-<<<<<<< HEAD
-=======
-    
-
-    
->>>>>>> branch 'main' of https://github.com/NoKyumHak/Hospital.git
 </script>
 </body>
 </html>
