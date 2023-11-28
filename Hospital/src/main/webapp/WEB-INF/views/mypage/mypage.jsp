@@ -28,43 +28,43 @@
 				<br>
 				<div class="user_wrap">
 					<input type="hidden" name="memberNum"
-						value="${reserveDetail.memberNum}">
+						value="${mypageDetail.memberNum}">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
 						<input class="user_input" name="memberName" readonly="readonly"
-							value="${reserveDetail.memberName}">
+							value="${mypageDetail.memberName}">
 					</div>
 				</div>
 				<div class="phone_wrap">
 					<div class="phone_name">전화 번호</div>
 					<div class="phone_input_box">
 						<input class="phone_input" name="memberPhone"
-							value="${reserveDetail.memberPhone}">
+							value="${mypageDetail.memberPhone}">
 					</div>
 				</div>
 				<div class="id_wrap">
 					<input type="hidden" name="memberId"
-						value="${reserveDetail.memberId}">
+						value="${mypageDetail.memberId}">
 					<div class="id_name">아이디</div>
 					<div class="id_input_box">
 						<input class="id_input" name="memberId" readonly="readonly"
-							value="${reserveDetail.memberId}">
+							value="${mypageDetail.memberId}">
 					</div>
 				</div>
 				<div class="pw_wrap">
 					<input type="hidden" name="memberPw"
-						value="${reserveDetail.memberPw}">
+						value="${mypageDetail.memberPw}">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" name="memberPw"
-							value="${reserveDetail.memberPw}">
+						<input type="password" class="pw_input" name="memberPw"
+							value="${mypageDetail.memberPw}">
 					</div>
 				</div>
 				<div class="email_wrap">
 					<div class="email_name">이메일</div>
 					<div class="email_input_box">
 						<input class="email_input" name="memberEmail"
-							value="${reserveDetail.memberEmail}">
+							value="${mypageDetail.memberEmail}">
 					</div>
 				</div>
 			</div>
