@@ -198,30 +198,12 @@ fieldset {
   padding: 10px 0px;
 }
 
-.ui-datepicker-trigger {						/* 캘린더 css 설정 */
-    margin-left: 5px;
-    width: 14%;
-    height: 52px;
-    font-weight: 600;
-    background-color: #dfe8f5;
-    font-size: 15px;
-    cursor:pointer;
-}
-input[name='checkDate'] {
-    width: 80%;
-    text-align: center;
-    border: 1px solid black;
-	height:31px;
-	padding: 10px 14px;
-	font-size:28px;
-}
-
-/* 예약하기 버튼 */
-.reserve_button_wrap{
+/* 수정하기 버튼 */
+.update_button_wrap{
 	margin-top: 40px;
 	text-align: center;
 }
-.reserve_button{
+.update_button{
 	width: 100%;
     height: 80px;
     background-color: #6AAFE6;
