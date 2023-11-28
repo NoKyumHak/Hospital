@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="wrapper">
-		<form id="mypageUpdate_form" method="post">
+		<form id="mypgaepUdate_form" method="post">
 			<div class="wrap">
 				<div class="subjecet">
 					<span>내 정보 수정</span>
@@ -45,6 +45,7 @@
 					<div class="id_name">아이디</div>
 					<div class="id_input_box">
 						<input class="id_input" name="memberId" readonly="readonly" value="${mypageUpdate.memberId}">
+						<input type="hidden" name="memberIDNum" value="${mypageUpdate.memberIDNum}">
 					</div>
 				</div>
 				<div class="pw_wrap">
@@ -68,10 +69,10 @@
 	<script>
 		
 		$(document).ready(function() {
-			//예약 버튼(예약 기능 작동)
+			//수정 버튼(수정 기능 작동)
 			$(".update_button").click(function() {
-				$("#update_form").attr("action", "/mypage/mypageUpdate");
-				$("#update_form").submit();
+				$("#mypgaepUdate_form").attr("action", "/mypage/mypageUpdate");
+				$("#mypgaepUdate_form").submit();
 			});
 		});
 

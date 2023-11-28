@@ -1,5 +1,7 @@
 package com.hos.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +11,9 @@ import com.hos.model.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-
+	
+	private static final Logger log = LoggerFactory.getLogger(MemberServiceImpl.class);
+	
 	@Autowired
 	MemberMapper membermapper;
 
@@ -59,6 +63,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO mypageGetDetail(MemberVO member) throws Exception {
 		return membermapper.mypageGetDetail(member);
+	}
+
+	@Override
+	public int mypageModify(MemberVO member) throws Exception {
+		log.info("(service) memberModify........." + member);
+		return membermapper.mypageModify(member);
 	}
 
 }
