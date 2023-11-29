@@ -20,12 +20,13 @@
 			</div>
 			<div class="mypage_header">
 				<a href="/mypage/mypageUpdate">개인정보 수정</a> <a
-					href="/mypage/mypageReserve">예약정보 확인</a>
+					href="/mypage/mypageReserveView">예약정보 확인</a>
 			</div>
 			<div class="content_area">
 				<h1>Profile</h1>
 				<br>
 				<br>
+				<input type="text" name="memberNum" value="${mypageDetail.memberNum}">
 				<div class="user_wrap">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">

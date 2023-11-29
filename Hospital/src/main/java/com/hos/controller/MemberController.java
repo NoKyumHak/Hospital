@@ -124,11 +124,10 @@ public class MemberController {
 		
 		member = (MemberVO) session.getAttribute("member");
 		
-		member = memberservice.checkGetDetail(member);
+		member = memberservice.memberGetDetail(member);
 		
-		logger.info("checkGetDetail......" + member);
+		logger.info("memberGetDetail......" + member);
 		
-		//System.out.println(member);
 		/* 예약자 정보 */
 		model.addAttribute("reserveDetail", member);
 		

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 import com.hos.service.CheckService;
 import com.hos.service.MemberService;
@@ -37,20 +38,7 @@ public class MypageController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-	// 마이 페이지 이동
-	@RequestMapping(value = "mypage", method = RequestMethod.GET)
-	public void mypageGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {
-		HttpSession session = request.getSession();
 
-		member = (MemberVO) session.getAttribute("member");
-
-		member = memberservice.checkGetDetail(member);
-
-		logger.info("mypageGetDetail......" + member);
-
-		/* 예약자 정보 */
-		model.addAttribute("mypageDetail", member);
-	}
 
 	// 마이 페이지 - 수정 페이지 이동
 	@RequestMapping(value = "mypageUpdate", method = RequestMethod.GET)
@@ -58,7 +46,7 @@ public class MypageController {
 		HttpSession session = request.getSession();
 
 		member = (MemberVO) session.getAttribute("member");
-		member = memberservice.checkGetDetail(member);
+		member = memberservice.memberGetDetail(member);
 		logger.info("mypageGetUpdate......" + member);
 
 		logger.info("마이 페이지 - 수정 페이지 진입");
@@ -86,13 +74,25 @@ public class MypageController {
 
 	// 마이 페이지 - 예약 정보 조회 페이지 이동
 	@RequestMapping(value = "mypageReserveView", method = RequestMethod.GET)
-	public void mypageReserveViewGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {
+	public void mypageReserveViewGET(HttpServletRequest request,MemberVO member, CheckVO check, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		System.out.println(member);
+		check = (CheckVO) session.getAttribute("mypageDetail");
+		check = checkservice.checkGetDetail(check);
+		logger.info("checkGetDetail......" + check);
+		System.out.println(check);
+
+		/* 예약자 정보 */
+		model.addAttribute("checkDetail", check);
+	}
+	
+	// 마이 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void mypageGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {
 		HttpSession session = request.getSession();
 
 		member = (MemberVO) session.getAttribute("member");
-
-		member = memberservice.checkGetDetail(member);
-
+		member = memberservice.memberGetDetail(member);
 		logger.info("mypageGetDetail......" + member);
 
 		/* 예약자 정보 */

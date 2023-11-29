@@ -11,8 +11,8 @@
 
 	</insert>
 	
-	<!-- 예약 페이지 진입 -->
-	<select id="checkGetDetail" resultType="com.hos.model.MemberVO">
+	<!-- 멤버 값 가져오기 -->
+	<select id="memberGetDetail" resultType="com.hos.model.MemberVO">
 	
 		select * from hos_member where memberNum = #{memberNum}
 	

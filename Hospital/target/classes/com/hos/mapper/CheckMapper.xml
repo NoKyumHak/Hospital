@@ -12,5 +12,12 @@
 		VALUES (#{memberNum}, #{memberName}, #{subject}, #{checkDate}, #{checkTime}, #{memberPhone})
 
 	</insert>
+	
+	<!-- 체크 값 가져오기 -->
+	<select id="checkGetDetail" resultType="com.hos.model.CheckVO">
+	
+		select * from hos_check where memberNum = #{memberNum}
+	
+	</select>
 
 </mapper>
