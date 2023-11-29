@@ -1,6 +1,7 @@
 package com.hos.service;
 
 import com.hos.model.CheckVO;
+import com.hos.model.MemberVO;
 
 public interface CheckService {
 	
@@ -8,5 +9,5 @@ public interface CheckService {
 	public void insertCheck(CheckVO check) throws Exception;
 	
 	// 예약 정보 전달
-	public CheckVO checkGetDetail(CheckVO check) throws Exception;
+	public CheckVO checkGetDetail(MemberVO member) throws Exception;
 }

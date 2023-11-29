@@ -52,6 +52,23 @@ public class MypageController {
 		logger.info("마이 페이지 - 수정 페이지 진입");
 		model.addAttribute("mypageUpdate", member);
 	}
+	
+	// 마이 페이지 - 예약 정보 조회 페이지 이동
+	@RequestMapping(value = "mypageReserveView", method = RequestMethod.GET)
+	public void mypageReserveViewGET(HttpServletRequest request,MemberVO member, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		System.out.println(member);
+		
+		member = (MemberVO) session.getAttribute("member");
+		CheckVO check = new CheckVO();
+		check = checkservice.checkGetDetail(member);
+		logger.info("checkGetDetail......" + member);
+		
+		
+
+		/* 예약자 정보 */
+		model.addAttribute("checkDetail", check);
+	}
 
 	// 마이 페이지 - 수정버튼 서비스
 	@RequestMapping(value = "mypageUpdate", method = RequestMethod.POST)
@@ -72,19 +89,7 @@ public class MypageController {
 
 	}
 
-	// 마이 페이지 - 예약 정보 조회 페이지 이동
-	@RequestMapping(value = "mypageReserveView", method = RequestMethod.GET)
-	public void mypageReserveViewGET(HttpServletRequest request,MemberVO member, CheckVO check, Model model) throws Exception {
-		HttpSession session = request.getSession();
-		System.out.println(member);
-		check = (CheckVO) session.getAttribute("mypageDetail");
-		check = checkservice.checkGetDetail(check);
-		logger.info("checkGetDetail......" + check);
-		System.out.println(check);
-
-		/* 예약자 정보 */
-		model.addAttribute("checkDetail", check);
-	}
+	
 	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)

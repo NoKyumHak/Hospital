@@ -28,5 +28,6 @@ public interface MemberService {
     	
 	// 내 정보 수정
 	public int mypageModify(MemberVO member) throws Exception;
+	
 
 }

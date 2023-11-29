@@ -27,4 +27,7 @@ public interface MemberMapper {
 	
 	// 개인 정보 수정
 	public int mypageModify(MemberVO member);
+	
+	// 예약 정보 가져오기
+	public CheckVO checkGetDetail(MemberVO member);
 }

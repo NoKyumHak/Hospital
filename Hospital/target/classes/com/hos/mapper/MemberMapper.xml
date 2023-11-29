@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hos.mapper.MemberMapper">
+	
+	
+
 	<insert id="memberJoin">
 		insert into hos_member (memberId , memberName, memberPw, memberIDNum,
 		memberPhone, memberEmail, gender) values( #{memberId} , #{memberName},
@@ -41,7 +44,7 @@
 	
 	<select id="memberLogin" resultType="com.hos.model.MemberVO">
 		
-		select memberNum, memberId, memberPw, memberName, adminck from hos_member where memberId = #{memberId}
+		select memberNum, memberId, memberPw, memberName, adminCk from hos_member where memberId = #{memberId}
 		
 	</select>
 	
@@ -50,5 +53,7 @@
 		update hos_member set memberName = #{memberName}, memberId = #{memberId}, memberPhone = #{memberPhone}, memberPw = #{memberPw}, memberEmail = #{memberEmail}
 	
 	</update>
+	
+	
 
 </mapper>
