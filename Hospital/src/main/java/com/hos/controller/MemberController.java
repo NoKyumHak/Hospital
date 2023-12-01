@@ -120,21 +120,17 @@ public class MemberController {
 	
 	// 멤버 정보 예약 페이지로 가져오기
 	@GetMapping("/reserve")
-	public void checkGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
+	public void checkGetDetail(HttpServletRequest request, MemberVO member, Model model) throws Exception{
 		HttpSession session = request.getSession();
 		
 		member = (MemberVO) session.getAttribute("member");
 		
 		member = memberservice.memberGetDetail(member);
 		
-		
 		model.addAttribute("reserveDetail", member);
-		
 		
 		logger.info("memberGetDetail......" + member);
 		
-		/* 예약자 정보 */
-			
 	}
 	// 예약 서비스 실행
 	@PostMapping("/reserve")

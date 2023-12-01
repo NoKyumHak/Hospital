@@ -1,6 +1,7 @@
 package com.hos.mapper;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hos.model.RecordVO;
+import com.hos.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -17,27 +18,25 @@ public class MedicalMapperTests {
 	@Autowired
 	private MedicalMapper medicalmapper;
 	
-	/*
+	/* 상품 리스트 & 상품 총 갯수 */
 	@Test
-	public void reservCheckTest() {
-		System.out.println("reservCheck()..........." + medicalmapper.reservCheck());
-	}
-	*/
-	
-	@Test
-	public void recordNumTest() {
+	public void goodsGetListTest() {
 		
-		RecordVO record = new RecordVO();
+		Criteria cri = new Criteria();
 		
-		Date date = new Date();
+		/* 검색조건 */
+		cri.setKeyword("가가가가");
 		
-		record.setDoctorNum(1);
-		record.setMemberNum(2);
-		record.setRecordContent("test");
-		record.setRecordDate(date);
-		record.setDsDate(date);
-		record.setExpense("a");
+		/* 검색 리스트 */
+		List list = medicalmapper.DoctorList(cri);
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println("result......." + i + " : " + list.get(i));
+		}
 		
-		medicalmapper.recordInsert(record);
+		/* 상품 총 갯수 */
+		int result = medicalmapper.DoctodTotal(cri);
+		System.out.println("resutl.........." + result);
+		
+		
 	}
 }

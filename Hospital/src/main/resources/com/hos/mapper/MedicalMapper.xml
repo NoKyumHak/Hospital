@@ -7,6 +7,44 @@
 		select * from hos_check
 	</select>
 	<insert id="recordInsert">
-		insert into hos_record (doctorNum, memberNum, recordContent, recordDate, dsDate) values (1, #{memberNum}, #{recordContent}, sysdate, sysdate)
+		insert into hos_record (doctorNum, memberNum,
+		recordContent, recordDate, dsDate) values (1, #{memberNum},
+		#{recordContent}, sysdate, sysdate)
 	</insert>
+
+<!-- 상품 리스트 -->
+	<select id="DoctorList" resultType="com.hos.model.DoctorVO">
+  	
+	  	<![CDATA[
+		select * from(
+		    select /*+INDEX_DESC(vam_book SYS_C008417)*/ rownum as rn, doctornum, doctorname,doctorcontent,subject
+		    from hos_doctor
+		    where 
+		]]>
+
+		<if test="keyword != null">
+
+			doctorname like '%' || #{keyword} || '%' and
+
+		</if>
+		     
+		<![CDATA[    
+		    rownum <= #{pageNum} * #{amount} 
+		    )
+		where rn > (#{pageNum} -1) * #{amount}		  	
+  		]]>
+
+	</select>
+
+	<!-- 상품 총 개수 -->
+	<select id="DoctodTotal" resultType="int">
+
+		select count(*) from hos_doctor
+
+		<if test="keyword != null">
+
+			where doctorname like '%' || #{keyword} || '%'
+		</if>
+
+	</select>
 </mapper>

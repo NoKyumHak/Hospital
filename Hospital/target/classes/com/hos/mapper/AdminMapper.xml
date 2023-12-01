@@ -21,5 +21,12 @@
 		values (#{DOCTORNUM}, #{fileName}, #{uploadPath}, #{uuid})
 
 	</insert>
+	
+	
+	<select id="doctorGetDetail" resultType="com.hos.model.DoctorVO">
+		
+		select * from hos_doctor where doctorNum = #{doctorNum}
+	
+	</select>
 
 </mapper>
