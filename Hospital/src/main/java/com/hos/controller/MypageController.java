@@ -1,5 +1,6 @@
 package com.hos.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,18 +9,15 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hos.model.CheckVO;
-import com.hos.model.DoctorVO;
 import com.hos.model.MemberVO;
 import com.hos.model.RecordVO;
 import com.hos.service.AdminService;
@@ -42,8 +40,6 @@ public class MypageController {
 	@Autowired
 	private RecordService recordservice;
 
-	@Autowired
-	private JavaMailSender mailSender;
 
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
@@ -52,19 +48,18 @@ public class MypageController {
 	
 	// doctor 가져오기
 	@GetMapping("/mypageRecordView")
-	public void doctorGetDetail(HttpServletRequest request, DoctorVO doctor, RecordVO record, Model model) throws Exception{
+	public void doctorGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
 		HttpSession session = request.getSession();
+		ArrayList<RecordVO> record = new ArrayList<RecordVO>();
+
+		member = (MemberVO) session.getAttribute("member");
+		System.out.println(member);
 		
-		doctor = (DoctorVO) session.getAttribute("doctor");
-		record = (RecordVO) session.getAttribute("record");
+		record = recordservice.memberRecordGet(member);
 		
-		doctor = adminservice.doctorGetDetail(doctor);
-		record = recordservice.recordGetDetail(record);
-		
-		model.addAttribute("doctorDetail", doctor);
 		model.addAttribute("recordDetail", record);
 		
-		logger.info("doctorGetDetail...+recordGetDetail..." + doctor + record);
+		logger.info("doctorGetDetail...+recordGetDetail..."  + record);
 	}
 	
 	// 마이 페이지 이동

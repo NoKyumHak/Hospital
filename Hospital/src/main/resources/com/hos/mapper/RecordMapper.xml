@@ -8,4 +8,10 @@
 		select * from hos_record where memberNum = #{memberNum}
 		
 	</select>
+	
+	 <select id="recordGetDetail" resultType="com.hos.model.RecordVO">
+			
+		select * from hos_record where recordNum = #{recordNum}
+		
+	</select>
 </mapper>

@@ -20,11 +20,7 @@ public class AdminMapperTest {
 	public void imageEnrollTest() {
 		
 		DoctorVO vo = new DoctorVO();
-		
-		
-		vo.setDOCTORNAME("조예찬");
-		vo.setSUBJECT("정형외과");
-		vo.setDOCTORCONTENT("장의사");
+
 		
 		mapper.doctorEnroll(vo);
 		

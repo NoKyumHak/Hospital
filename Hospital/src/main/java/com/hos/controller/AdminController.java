@@ -158,7 +158,7 @@ public class AdminController {
 		logger.info("doctorEnrollPOST - Received data: " + doc);
 		
 		adminservice.doctorEnroll(doc);
-		rttr.addFlashAttribute("enroll_result", doc.getDOCTORNAME());
+		rttr.addFlashAttribute("enroll_result", doc.getDoctorName());
 
 		return "redirect:/admin/main";
 	}

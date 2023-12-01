@@ -1,5 +1,7 @@
 package com.hos.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -134,13 +136,17 @@ public class MemberController {
 	}
 	// 예약 서비스 실행
 	@PostMapping("/reserve")
-	public void reservePOST(CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
-		logger.info("reservePOST......" + check);
-		
-		checkservice.insertCheck(check);
+	public void reservePOST(HttpServletRequest request, CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
+	    HttpSession session = request.getSession();
+	    logger.info("reservePOST......" + check);
 
-		logger.info("reserve Service 성공");
-		
+	    checkservice.insertCheck(check);
+	    session.setAttribute("memberReserve", check);
+	    
+	    // 리다이렉트 시 메시지 전달
+	    rttr.addFlashAttribute("message", "예약이 성공적으로 완료되었습니다.");
+
+	    logger.info("reserve Service 성공");
 	}
 	
 	// 아이디 중복 검사
