@@ -19,9 +19,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hos.model.CheckVO;
+import com.hos.model.DoctorVO;
 import com.hos.model.MemberVO;
+import com.hos.model.RecordVO;
+import com.hos.service.AdminService;
 import com.hos.service.CheckService;
 import com.hos.service.MemberService;
+import com.hos.service.RecordService;
 
 @Controller
 @RequestMapping(value = "/mypage")
@@ -31,6 +35,12 @@ public class MypageController {
 
 	@Autowired
 	private CheckService checkservice;
+	
+	@Autowired
+	private AdminService adminservice;
+	
+	@Autowired
+	private RecordService recordservice;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -39,7 +49,24 @@ public class MypageController {
 	private BCryptPasswordEncoder pwEncoder;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+	
+	// doctor 가져오기
+	@GetMapping("/mypageRecordView")
+	public void doctorGetDetail(HttpServletRequest request, DoctorVO doctor, RecordVO record, Model model) throws Exception{
+		HttpSession session = request.getSession();
+		
+		doctor = (DoctorVO) session.getAttribute("doctor");
+		record = (RecordVO) session.getAttribute("record");
+		
+		doctor = adminservice.doctorGetDetail(doctor);
+		record = recordservice.recordGetDetail(record);
+		
+		model.addAttribute("doctorDetail", doctor);
+		model.addAttribute("recordDetail", record);
+		
+		logger.info("doctorGetDetail...+recordGetDetail..." + doctor + record);
+	}
+	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public void mypageGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {

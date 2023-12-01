@@ -7,4 +7,6 @@ public interface AdminMapper {
 	public void doctorEnroll(DoctorVO doctor);
 	
 	public void imageEnroll(DocImageVO vo);
+
+	public DoctorVO doctorGetDetail(DoctorVO doctor);
 }
