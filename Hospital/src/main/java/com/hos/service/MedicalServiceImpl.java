@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.hos.mapper.MedicalMapper;
 import com.hos.model.CheckVO;
+import com.hos.model.Criteria;
+import com.hos.model.DoctorVO;
 import com.hos.model.RecordVO;
 
 import lombok.extern.log4j.Log4j;
@@ -31,4 +33,17 @@ public class MedicalServiceImpl implements MedicalService {
 		log.info("recordInsert().......");
 		medicalmapper.recordInsert(record);
 	}
+	
+	/* 의사 리스트 */
+	@Override
+	public List<DoctorVO> DoctorList(Criteria cri) {
+		log.info("goodsGetTotalList()..........");
+		return medicalmapper.DoctorList(cri);
+	}
+
+	/* 의사 총수 */
+	public int DoctodTotal(Criteria cri) {
+		log.info("goodsGetTotal().........");
+		return medicalmapper.DoctodTotal(cri);
+	}	
 }
