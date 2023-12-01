@@ -10,6 +10,15 @@ public class MemberVO {
 	private String memberEmail;
 	private int gender;
 	private int adminCk;
+	
+	private CheckVO cvo;
+	
+	public CheckVO getCvo() {
+		return cvo;
+	}
+	public void setCvo(CheckVO cvo) {
+		this.cvo = cvo;
+	}
 	public int getMemberNum() {
 		return memberNum;
 	}
@@ -68,7 +77,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [memberNum=" + memberNum + ", memberId=" + memberId + ", memberName=" + memberName
 				+ ", memberPw=" + memberPw + ", memberIDNum=" + memberIDNum + ", memberPhone=" + memberPhone
-				+ ", memberEmail=" + memberEmail + ", gender=" + gender + ", adminCk=" + adminCk + "]";
+				+ ", memberEmail=" + memberEmail + ", gender=" + gender + ", adminCk=" + adminCk + ", cvo=" + cvo + "]";
 	}
 	
 }

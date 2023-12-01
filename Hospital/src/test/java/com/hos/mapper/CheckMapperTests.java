@@ -2,6 +2,7 @@ package com.hos.mapper;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,11 +37,12 @@ public class CheckMapperTests {
 	 * log.info("Test End..."); }
 	 */
     
-    @Test
-    public void checkGetDetailTest() throws Exception{
-    	
-    	int memberNum = 2;
-    	
-    	//log.info("check........" + service.checkGetDetail(memberNum));
-    }
+	/*
+	 * @Test public void checkGetDetailTest() throws Exception{
+	 * 
+	 * int memberNum = 2;
+	 * 
+	 * //log.info("check........" + service.checkGetDetail(memberNum)); }
+	 */
+    
 }

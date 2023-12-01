@@ -23,12 +23,11 @@ public interface MemberMapper {
     public MemberVO memberLogin(MemberVO member);
 
 	// 예약 페이지에 멤버 값 가져오기
-	public MemberVO checkGetDetail(MemberVO member);
-	
-	// 마이 페이지에 멤버 값 가져오기
-	public MemberVO mypageGetDetail(MemberVO member);
+	public MemberVO memberGetDetail(MemberVO member);
 	
 	// 개인 정보 수정
 	public int mypageModify(MemberVO member);
-
+	
+	// 예약 정보 가져오기
+	public CheckVO checkGetDetail(MemberVO member);
 }

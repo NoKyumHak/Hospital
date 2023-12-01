@@ -35,4 +35,6 @@ public class MemberMapperTests {
         System.out.println("결과 값 : " + membermapper.memberLogin(member));
         
     }
+    
+    
 }

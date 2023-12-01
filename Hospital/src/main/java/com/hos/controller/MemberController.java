@@ -48,25 +48,22 @@ public class MemberController {
 	public void joinGET() {
 
 		logger.info("회원가입 페이지 진입");
-
 	}
 	
-
 	// 로그인 페이지 이동
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public void loginGET() {
 
 		logger.info("로그인 페이지 진입");
-
 	}
 
-	
 	// 마이 페이지 이동
 	@RequestMapping(value = "mypage", method = RequestMethod.GET)
 	public void mypageGET() {
 
 		logger.info("마이 페이지 진입");
 	}
+	
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPOST(MemberVO member) throws Exception {
@@ -82,7 +79,6 @@ public class MemberController {
 		memberservice.memberJoin(member);
 
 		return "redirect:/main";
-
 	}
 
 	/* 로그인 */
@@ -93,16 +89,17 @@ public class MemberController {
         String encodePw = "";
     
         MemberVO lvo = memberservice.memberLogin(member);    // 제출한아이디와 일치하는 아이디 있는지 
-        
         if(lvo != null) {            // 일치하는 아이디 존재시
             
             rawPw = member.getMemberPw();        // 사용자가 제출한 비밀번호
             encodePw = lvo.getMemberPw();        // 데이터베이스에 저장한 인코딩된 비밀번호
             
             if(true == pwEncoder.matches(rawPw, encodePw)) {        // 비밀번호 일치여부 판단
-                
+            	CheckVO cvo = checkservice.checkGetDetail(lvo);
                 lvo.setMemberPw("");                    // 인코딩된 비밀번호 정보 지움
                 session.setAttribute("member", lvo);     // session에 사용자의 정보 저장
+                System.out.println(cvo);
+                session.setAttribute("memberReserve", cvo);
                 return "redirect:/main";        // 메인페이지 이동
                 
                 
@@ -128,26 +125,25 @@ public class MemberController {
 		
 		member = (MemberVO) session.getAttribute("member");
 		
-		member = memberservice.checkGetDetail(member);
+		member = memberservice.memberGetDetail(member);
 		
-		logger.info("checkGetDetail......" + member);
 		
-		//System.out.println(member);
-		/* 예약자 정보 */
 		model.addAttribute("reserveDetail", member);
 		
+		
+		logger.info("memberGetDetail......" + member);
+		
+		/* 예약자 정보 */
+			
 	}
 	// 예약 서비스 실행
 	@PostMapping("/reserve")
-	public String reservePOST(CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
-		
+	public void reservePOST(CheckVO check, RedirectAttributes rttr, Model model) throws Exception {
 		logger.info("reservePOST......" + check);
 		
 		checkservice.insertCheck(check);
-		
+
 		logger.info("reserve Service 성공");
-		
-		return null;
 		
 	}
 	
@@ -284,6 +280,5 @@ public class MemberController {
         return "redirect:/main";        
         
     }
-
 
 }

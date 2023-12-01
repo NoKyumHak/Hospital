@@ -56,13 +56,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO checkGetDetail(MemberVO member) throws Exception {
-		return membermapper.checkGetDetail(member);
-	}
-
-	@Override
-	public MemberVO mypageGetDetail(MemberVO member) throws Exception {
-		return membermapper.mypageGetDetail(member);
+	public MemberVO memberGetDetail(MemberVO member) throws Exception {
+		return membermapper.memberGetDetail(member);
 	}
 
 	@Override
