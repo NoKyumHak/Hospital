@@ -57,10 +57,12 @@
       <li><a href="/main">인사말</a></li>
       <li><a href="/medicalinfo">의료진 정보</a></li>
       <li><a href="/home/way">오시는길</a></li>
-      <li><a href="javascript:void(window.open
-         	('member/reserve', '진료 예약','width=800, height=600'))">예약
-		</a></li>
-      <li><a href="home/info">병원 소개</a></li>
+    <c:if test="${memberReserve == null}">
+        <li><a href="javascript:void(window.open('member/reserve', '진료 예약','width=800, height=600'))">예약</a></li>
+    </c:if>
+   <c:if test="${memberReserve != null}"><li><span>**이미 예약하셨습니다**</span></li></c:if>
+        
+    
     </ul>
   </nav>         
       <div class="content_area">
@@ -88,6 +90,8 @@
             } 
         }); // ajax 
     });
+    console.log("1" + ${memberReserve});
+    
 </script>
 </body>
 </html>
