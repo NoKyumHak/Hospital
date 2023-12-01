@@ -1,7 +1,5 @@
 package com.hos.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
