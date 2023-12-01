@@ -32,6 +32,7 @@
             <div class="login_button"><a href="/member/login"><img src="resources/img/login.png" width="100%" height="100%"></a></div>
             <span><a href="/member/join">회원가입</a></span>
              <span><a href="/admin/main">관리자페이지</a></span>
+             <span><a href="/medical/Doctorpage">의사</a></span>
          </c:if>
          <c:if test="${member != null }">   
                   <c:if test="${member.adminCk == 1 }">
@@ -55,16 +56,12 @@
     <ul>
       <li>대우 병원 입니다</li>
       <li><a href="/main">인사말</a></li>
-      <li><a href="/main/medical">의료진 정보</a></li>
-      <li><a href="/main/way">오시는길</a></li>
-      
-    <c:if test="${memberReserve == null}">
-        <li><a href="javascript:void(window.open('member/reserve', '진료 예약','width=800, height=600'))">예약</a></li>
-    </c:if>
-   <c:if test="${memberReserve != null}"><li><span>**이미 예약하셨습니다**</span></li></c:if>
-        
-    
-
+      <li><a href="/medicalinfo">의료진 정보</a></li>
+      <li><a href="/home/way">오시는길</a></li>
+      <li><a href="javascript:void(window.open
+         	('member/reserve', '진료 예약','width=800, height=600'))">예약
+		</a></li>
+      <li><a href="home/info">병원 소개</a></li>
     </ul>
   </nav>         
       <div class="content_area">
@@ -92,8 +89,6 @@
             } 
         }); // ajax 
     });
-    console.log("1" + ${memberReserve});
-    
 </script>
 </body>
 </html>

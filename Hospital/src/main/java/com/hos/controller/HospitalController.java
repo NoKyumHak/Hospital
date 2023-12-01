@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import com.hos.model.CheckVO;
 
 @Controller
@@ -20,6 +21,8 @@ public class HospitalController {
 
 	}
 
+	
+
 	// 메인 페이지 - 의료진 정보 페이지 이동
 	@RequestMapping(value = "/medicalinfo", method = RequestMethod.GET)
 	public void medicalinfoPageGET() {
@@ -27,4 +30,7 @@ public class HospitalController {
 		logger.info("메인 페이지 - 의료진 정보 페이지 진입");
 
 	}
+	
+	
+	
 }

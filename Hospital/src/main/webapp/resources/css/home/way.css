@@ -85,11 +85,16 @@ li{
 .content_area{
 	width: 100%;
     background-color: #97ef97;
-    height: 400px; 
-    background-image: url(resource/img/back.png) no-repeat center fixed;  
-    background-size: cover;
+    height: 632px; 
 }
-
+.left_area{
+	width: 20%;
+	float: left;
+}
+.right_area{
+	width: 75%;
+	float: right;
+}
 /* float 속성 해제 */
 .clearfix{
 	clear: both;
