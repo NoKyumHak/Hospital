@@ -7,7 +7,7 @@
 	<insert id="doctorEnroll" useGeneratedKeys="true" keyProperty="DOCTORNUM">
 		<selectKey resultType="int" keyProperty="DOCTORNUM" order="AFTER">
 		
-			SELECT ISEQ$$_78449.nextval from dual
+			SELECT ISEQ$$_78464.nextval from dual
 
 		</selectKey>
 		insert into hos_doctor(DOCTORNAME, DOCTORCONTENT, SUBJECT)

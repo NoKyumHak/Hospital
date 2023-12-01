@@ -56,12 +56,12 @@
     <ul>
       <li>대우 병원 입니다</li>
       <li><a href="/main">인사말</a></li>
-      <li><a href="/main/medical">의료진 정보</a></li>
-      <li><a href="/main/way">오시는길</a></li>
+      <li><a href="/medicalinfo">의료진 정보</a></li>
+      <li><a href="/home/way">오시는길</a></li>
       <li><a href="javascript:void(window.open
          	('member/reserve', '진료 예약','width=800, height=600'))">예약
 		</a></li>
-      <li><a href="main/info">병원 소개</a></li>
+      <li><a href="home/info">병원 소개</a></li>
     </ul>
   </nav>         
       <div class="content_area">

@@ -1,22 +1,28 @@
 package com.hos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hos.mapper.CheckMapper;
 import com.hos.model.CheckVO;
+import com.hos.model.MemberVO;
 
 @Service
-public class CheckServiceImpl implements CheckService{
-	
+public class CheckServiceImpl implements CheckService {
+
 	@Autowired
 	CheckMapper checkmapper;
 
-	
 	@Override
 	public void insertCheck(CheckVO check) throws Exception {
-		// TODO Auto-generated method stub
 		checkmapper.insertCheck(check);
+	}
+
+	@Override
+	public CheckVO checkGetDetail(MemberVO member) throws Exception {
+		return checkmapper.checkGetDetail(member);
 	}
 
 }

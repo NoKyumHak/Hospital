@@ -1,5 +1,7 @@
 package com.hos.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 import com.hos.service.CheckService;
 import com.hos.service.MemberService;
@@ -43,12 +46,9 @@ public class MypageController {
 		HttpSession session = request.getSession();
 
 		member = (MemberVO) session.getAttribute("member");
-
-		member = memberservice.checkGetDetail(member);
-
+		member = memberservice.memberGetDetail(member);
 		logger.info("mypageGetDetail......" + member);
 
-		// System.out.println(member);
 		/* 예약자 정보 */
 		model.addAttribute("mypageDetail", member);
 	}
@@ -59,14 +59,29 @@ public class MypageController {
 		HttpSession session = request.getSession();
 
 		member = (MemberVO) session.getAttribute("member");
-		member = memberservice.checkGetDetail(member);
+		member = memberservice.memberGetDetail(member);
 		logger.info("mypageGetUpdate......" + member);
 
 		logger.info("마이 페이지 - 수정 페이지 진입");
 		model.addAttribute("mypageUpdate", member);
 	}
+	
+	// 마이 페이지 - 예약 정보 조회 페이지 이동
+	@RequestMapping(value = "mypageReserveView", method = RequestMethod.GET)
+	public void mypageReserveViewGET(HttpServletRequest request,MemberVO member, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		System.out.println(member);
+		
+		member = (MemberVO) session.getAttribute("member");
+		CheckVO check = new CheckVO();
+		check = checkservice.checkGetDetail(member);
+		logger.info("checkGetDetail......" + check);
+		
+		/* 예약자 정보 */
+		model.addAttribute("checkDetail", check);
+	}
 
-	// 마이 페이지 - 수정 페이지 이동
+	// 마이 페이지 - 수정버튼 서비스
 	@RequestMapping(value = "mypageUpdate", method = RequestMethod.POST)
 	public String updatePOST(MemberVO member, RedirectAttributes rttr) throws Exception {
 
@@ -78,25 +93,11 @@ public class MypageController {
 		member.setMemberPw(encodePw); // 인코딩된 비밀번호 member객체에 다시 저장
 		System.out.println(encodePw);
 		int result = memberservice.mypageModify(member);
-		
+
 		rttr.addFlashAttribute("Updateresult", result);
-		
+
 		return "redirect:/main";
-		
+
 	}
 	
-	// 내 정보 수정
-	/*
-	 * @PostMapping("/mypageModify") public String mypageModifyPOST(MemberVO member,
-	 * RedirectAttributes rttr) throws Exception{
-	 * 
-	 * memberservice.mypageModify(member);
-	 * 
-	 * rttr.addFlashAttribute("result", "mypageUpdate Success");
-	 * 
-	 * return "redirect:/mypage/mypage";
-	 * 
-	 * }
-	 */
-
 }

@@ -16,6 +16,16 @@ public class CheckVO {
 	/* 이름 */
 	private String memberName;
 	
+	private String memberIDNum;
+	
+	public String getMemberIDNum() {
+		return memberIDNum;
+	}
+
+	public void setMemberIDNum(String memberIDNum) {
+		this.memberIDNum = memberIDNum;
+	}
+
 	/* 진료 과 */
 	private String subject;
 	
@@ -88,8 +98,8 @@ public class CheckVO {
 	@Override
 	public String toString() {
 		return "CheckVO [checkNum=" + checkNum + ", memberNum=" + memberNum + ", memberName=" + memberName
-				+ ", subject=" + subject + ", checkDate=" + checkDate + ", checkTime=" + checkTime + ", memberPhone="
-				+ memberPhone + "]";
+				+ ", memberIDNum=" + memberIDNum + ", subject=" + subject + ", checkDate=" + checkDate + ", checkTime="
+				+ checkTime + ", memberPhone=" + memberPhone + "]";
 	}
 	
 }
