@@ -18,8 +18,6 @@ public class CheckVO {
 	
 	private String memberIDNum;
 	
-	
-	
 	public String getMemberIDNum() {
 		return memberIDNum;
 	}

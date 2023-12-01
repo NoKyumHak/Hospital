@@ -1,5 +1,7 @@
 package com.hos.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -38,7 +40,18 @@ public class MypageController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
+	// 마이 페이지 이동
+	@RequestMapping(value = "mypage", method = RequestMethod.GET)
+	public void mypageGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {
+		HttpSession session = request.getSession();
 
+		member = (MemberVO) session.getAttribute("member");
+		member = memberservice.memberGetDetail(member);
+		logger.info("mypageGetDetail......" + member);
+
+		/* 예약자 정보 */
+		model.addAttribute("mypageDetail", member);
+	}
 
 	// 마이 페이지 - 수정 페이지 이동
 	@RequestMapping(value = "mypageUpdate", method = RequestMethod.GET)
@@ -62,10 +75,8 @@ public class MypageController {
 		member = (MemberVO) session.getAttribute("member");
 		CheckVO check = new CheckVO();
 		check = checkservice.checkGetDetail(member);
-		logger.info("checkGetDetail......" + member);
+		logger.info("checkGetDetail......" + check);
 		
-		
-
 		/* 예약자 정보 */
 		model.addAttribute("checkDetail", check);
 	}
@@ -88,20 +99,5 @@ public class MypageController {
 		return "redirect:/main";
 
 	}
-
 	
-	
-	// 마이 페이지 이동
-	@RequestMapping(value = "mypage", method = RequestMethod.GET)
-	public void mypageGET(HttpServletRequest request, MemberVO member, Model model) throws Exception {
-		HttpSession session = request.getSession();
-
-		member = (MemberVO) session.getAttribute("member");
-		member = memberservice.memberGetDetail(member);
-		logger.info("mypageGetDetail......" + member);
-
-		/* 예약자 정보 */
-		model.addAttribute("mypageDetail", member);
-	}
-
 }

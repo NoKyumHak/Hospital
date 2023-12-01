@@ -1,5 +1,7 @@
 package com.hos.mapper;
 
+import java.util.List;
+
 import com.hos.model.CheckVO;
 import com.hos.model.MemberVO;
 
@@ -9,5 +11,6 @@ public interface CheckMapper {
 	public int insertCheck(CheckVO check);
 	
 	// 예약 정보 전달
-	public CheckVO checkGetDetail(MemberVO member) throws Exception;
+	public CheckVO checkGetDetail(MemberVO member);
+	
 }

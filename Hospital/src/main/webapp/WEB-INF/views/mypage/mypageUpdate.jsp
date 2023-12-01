@@ -16,9 +16,19 @@
 <title>내 정보 수정</title>
 </head>
 <body>
+
+
 	<div class="wrapper">
 		<form id="mypgaepUdate_form" method="post">
 			<div class="wrap">
+			<div class="top_gnb_area">
+				<h1>헤더</h1>
+			</div>
+			<div class="mypage_header">
+				<a href="/mypage/mypageUpdate">개인정보 수정</a> <a
+					href="/mypage/mypageReserveView">예약정보 확인</a>
+			</div>
+			<div class="content_area">
 				<div class="subjecet">
 					<span>내 정보 수정</span>
 				</div>
@@ -63,6 +73,7 @@
 				<div class="update_button_wrap">
 					<input type="button" class="update_button" value="수정하기">
 				</div>
+			</div>
 			</div>
 		</form>
 	</div>
