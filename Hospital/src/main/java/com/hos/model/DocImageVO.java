@@ -8,7 +8,7 @@ public class DocImageVO {
 	/* 파일 이름 */
 	private String fileName;
 	/* 상품 id */
-	private int DOCTORNUM;
+	private int doctorNum;
 	public String getUploadPath() {
 		return uploadPath;
 	}
@@ -27,16 +27,16 @@ public class DocImageVO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	public int getDOCTORNUM() {
-		return DOCTORNUM;
+	public int getDoctorNum() {
+		return doctorNum;
 	}
-	public void setDOCTORNUM(int dOCTORNUM) {
-		DOCTORNUM = dOCTORNUM;
+	public void setDoctorNum(int doctorNum) {
+		this.doctorNum = doctorNum;
 	}
 	@Override
 	public String toString() {
-		return "DocImageVO [uploadPath=" + uploadPath + ", uuid=" + uuid + ", fileName=" + fileName + ", DOCTORNUM="
-				+ DOCTORNUM + "]";
+		return "DocImageVO [uploadPath=" + uploadPath + ", uuid=" + uuid + ", fileName=" + fileName + ", doctorNum="
+				+ doctorNum + "]";
 	}
 	
 }

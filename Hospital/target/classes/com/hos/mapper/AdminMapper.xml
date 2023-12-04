@@ -4,21 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hos.mapper.AdminMapper">
 	<!-- 의료진 등록 -->
-	<insert id="doctorEnroll" useGeneratedKeys="true" keyProperty="DOCTORNUM">
-		<selectKey resultType="int" keyProperty="DOCTORNUM" order="AFTER">
+	<insert id="doctorEnroll" useGeneratedKeys="true" keyProperty="doctorNum">
+		<selectKey resultType="int" keyProperty="doctorNum" order="AFTER">
 		
-			SELECT ISEQ$$_78464.nextval from dual
+			SELECT ISEQ$$_78566.nextval from dual
 
 		</selectKey>
-		insert into hos_doctor(DOCTORNAME, DOCTORCONTENT, SUBJECT)
-		values( #{DOCTORNAME}, #{DOCTORCONTENT}, #{SUBJECT} )
+		insert into hos_doctor(doctorName, doctorContent, subject)
+		values( #{doctorName}, #{doctorContent}, #{subject} )
 	</insert>
 
 	<!-- 이미지 등록 -->
 	<insert id="imageEnroll">
 	
 		insert into hos_image(doctorNum, fileName, uploadPath, uuid) 
-		values (#{DOCTORNUM}, #{fileName}, #{uploadPath}, #{uuid})
+		values (#{doctorNum}, #{fileName}, #{uploadPath}, #{uuid})
 
 	</insert>
 	

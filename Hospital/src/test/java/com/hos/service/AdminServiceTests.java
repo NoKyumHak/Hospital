@@ -24,9 +24,9 @@ public class AdminServiceTests {
 	public void DoctorEnrollTests() {
 		DoctorVO doc = new DoctorVO();
 		
-		doc.setDOCTORNAME("조예찬");
-		doc.setSUBJECT("정형외과");
-		doc.setDOCTORCONTENT("장의사");
+		doc.setDoctorName("조예찬");
+		doc.setSubject("정형외과");
+		doc.setDoctorContent("장의사");
 		
 		
 		List<DocImageVO> imageList = new ArrayList<DocImageVO>();

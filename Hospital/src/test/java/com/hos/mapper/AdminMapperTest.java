@@ -22,9 +22,9 @@ public class AdminMapperTest {
 		DoctorVO vo = new DoctorVO();
 		
 		
-		vo.setDOCTORNAME("조예찬");
-		vo.setSUBJECT("정형외과");
-		vo.setDOCTORCONTENT("장의사");
+		vo.setDoctorName("조예찬");
+		vo.setSubject("정형외과");
+		vo.setDoctorContent("장의사");
 		
 		mapper.doctorEnroll(vo);
 		
