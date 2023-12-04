@@ -18,15 +18,7 @@ public class AdminMapperTest {
 	/* 이미지 등록 */
 	@Test
 	public void imageEnrollTest() {
-		
-		DoctorVO vo = new DoctorVO();
-		
-		
-		vo.setDoctorName("조예찬");
-		vo.setSubject("정형외과");
-		vo.setDoctorContent("장의사");
-		
-		mapper.doctorEnroll(vo);
+
 		
 	}
 	

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hos.mapper.RecordMapper">
+    <select id="memberRecordGet" resultType="com.hos.model.RecordVO">
+			
+		select * from hos_record where memberNum = #{memberNum}
+		
+	</select>
+	
+	 <select id="recordGetDetail" resultType="com.hos.model.RecordVO">
+			
+		select * from hos_record where recordNum = #{recordNum}
+		
+	</select>
+</mapper>

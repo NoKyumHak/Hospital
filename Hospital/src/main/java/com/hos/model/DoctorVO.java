@@ -3,6 +3,7 @@ package com.hos.model;
 import java.util.List;
 
 public class DoctorVO {
+
    private int doctorNum;
    private String doctorName;
    private String doctorContent;
@@ -47,3 +48,7 @@ public class DoctorVO {
    
    
 }
+
+
+
+
