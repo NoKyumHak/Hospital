@@ -3,15 +3,46 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hos.mapper.RecordMapper">
-    <select id="memberRecordGet" resultType="com.hos.model.RecordVO">
-			
-		select * from hos_record where memberNum = #{memberNum}
-		
+	<select id="memberRecordGet" resultType="com.hos.model.RecordVO">
+
+		select * from hos_record where memberNum = #{memberNum} ORDER BY recordNum
+		DESC
+
+	</select>
+
+	<select id="recordGetDetail" resultType="com.hos.model.RecordVO">
+
+		select * from hos_record where recordNum = #{recordNum}
+
+	</select>
+
+	<select id="recordDetail" resultType="com.hos.model.RecordVO">
+
+		select * from hos_record where recordNum = #{recordNum}
+
 	</select>
 	
-	 <select id="recordGetDetail" resultType="com.hos.model.RecordVO">
-			
-		select * from hos_record where recordNum = #{recordNum}
-		
-	</select>
+	 <!-- 작가 목록 -->
+      <select id="recordGetList" resultType="com.hos.model.RecordVO">
+      
+      <![CDATA[
+          select * from (
+              select /*+INDEX_DESC(hos_record SYS_C008397) */ 
+                  rownum as rn, recordNum, doctorNum, memberNum, recordTitle, recordContent, recordDate, dsDate, expense
+            from hos_record 
+            where
+             
+    ]]>         
+            <if test="keyword != null">
+                recordNum like '%'||#{keyword}||'%' and
+            </if>
+            
+    <![CDATA[        
+             rownum <= #{pageNum}*#{amount}
+            )
+        where rn > (#{pageNum} - 1) * #{amount}
+      ]]>
+      
+      </select>
+
 </mapper>

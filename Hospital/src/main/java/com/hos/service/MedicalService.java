@@ -20,4 +20,7 @@ public interface MedicalService {
 	
 	/* 의사 총수 */
 	public int DoctodTotal(Criteria cri);	
+	
+	// record로 doctor 정보 전달
+	public DoctorVO doctorGetDetail(RecordVO record) throws Exception;
 }

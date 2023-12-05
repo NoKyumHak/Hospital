@@ -60,7 +60,7 @@
       <li><a href="/home/way">오시는길</a></li>
       <c:if test="${memberReserve == null}"><li><a href="javascript:void(window.open
          	('member/reserve', '진료 예약','width=800, height=600'))">예약
-		</a></li>></c:if>
+		</a></li></c:if>
 		
 	<c:if test="${memberReserve != null}"><li>*예약이 이미 있습니다.*</li></c:if>
       <li><a href="home/info">병원 소개</a></li>

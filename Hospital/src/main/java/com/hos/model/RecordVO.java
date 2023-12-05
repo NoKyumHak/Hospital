@@ -13,6 +13,8 @@ public class RecordVO {
 	
 	private String recordContent;
 	
+	private String recordTitle;
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date recordDate;
 	
@@ -53,6 +55,14 @@ public class RecordVO {
 		this.recordContent = recordContent;
 	}
 
+	public String getRecordTitle() {
+		return recordTitle;
+	}
+
+	public void setRecordTitle(String recordTitle) {
+		this.recordTitle = recordTitle;
+	}
+
 	public Date getRecordDate() {
 		return recordDate;
 	}
@@ -80,9 +90,8 @@ public class RecordVO {
 	@Override
 	public String toString() {
 		return "RecordVO [recordNum=" + recordNum + ", doctorNum=" + doctorNum + ", memberNum=" + memberNum
-				+ ", recordContent=" + recordContent + ", recordDate=" + recordDate + ", dsDate=" + dsDate
-				+ ", expense=" + expense + "]";
+				+ ", recordContent=" + recordContent + ", recordTitle=" + recordTitle + ", recordDate=" + recordDate
+				+ ", dsDate=" + dsDate + ", expense=" + expense + "]";
 	}
-	
 	
 }

@@ -9,5 +9,5 @@ public interface AdminMapper {
 	
 	public void imageEnroll(DocImageVO vo);
 
-	public DoctorVO doctorGetDetail(RecordVO doctor);
+	
 }

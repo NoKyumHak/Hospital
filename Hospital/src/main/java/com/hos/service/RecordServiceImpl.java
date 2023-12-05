@@ -25,4 +25,9 @@ public class RecordServiceImpl implements RecordService{
 		return (ArrayList<RecordVO>) recordmapper.memberRecordGet(member);
 	}
 
+	@Override
+	public RecordVO recordDetail(int recordNum) {
+		return recordmapper.recordDetail(recordNum);
+	}
+
 }

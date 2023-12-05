@@ -1,7 +1,6 @@
 package com.hos.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,13 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hos.model.CheckVO;
+import com.hos.model.DoctorVO;
 import com.hos.model.MemberVO;
 import com.hos.model.RecordVO;
-import com.hos.service.AdminService;
+
 import com.hos.service.CheckService;
+import com.hos.service.MedicalService;
 import com.hos.service.MemberService;
 import com.hos.service.RecordService;
 
@@ -35,11 +37,10 @@ public class MypageController {
 	private CheckService checkservice;
 	
 	@Autowired
-	private AdminService adminservice;
+	private RecordService recordservice;
 	
 	@Autowired
-	private RecordService recordservice;
-
+	private MedicalService medicalservice;
 
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
@@ -51,15 +52,22 @@ public class MypageController {
 	public void doctorGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
 		HttpSession session = request.getSession();
 		ArrayList<RecordVO> record = new ArrayList<RecordVO>();
-
+		ArrayList<DoctorVO> doctor = new ArrayList<DoctorVO>();
+		DoctorVO dvo = new DoctorVO();
 		member = (MemberVO) session.getAttribute("member");
 		System.out.println(member);
 		
 		record = recordservice.memberRecordGet(member);
 		
-		model.addAttribute("recordDetail", record);
+		for(RecordVO item : record) {
+			dvo = medicalservice.doctorGetDetail(item);
+			doctor.add(dvo);
+		}
 		
-		logger.info("doctorGetDetail...+recordGetDetail..."  + record);
+		model.addAttribute("recordDetail", record);
+		model.addAttribute("doctorDetail", doctor);
+		
+		logger.info("doctorGetDetail...+recordGetDetail..."  + record + doctor);
 	}
 	
 	// 마이 페이지 이동
@@ -120,6 +128,17 @@ public class MypageController {
 
 		return "redirect:/main";
 
+	}
+	
+	// Record 상세 페이지
+	@GetMapping("/mypageRecordDetail")
+	public String recordDetailGET(@RequestParam("recordId") int recordId, Model model) throws Exception {
+	    logger.info("recordDetail......." + recordId);
+
+	    model.addAttribute("record", recordId);
+	    model.addAttribute("recordDetail", recordservice.recordDetail(recordId));
+
+	    return "mypage/mypageRecordDetail";  // HTML 페이지 이름 반환
 	}
 	
 }

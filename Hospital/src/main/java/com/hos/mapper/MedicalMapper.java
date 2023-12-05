@@ -20,6 +20,6 @@ public interface MedicalMapper {
 	
 	/*의사 수*/
 	public int DoctodTotal(Criteria cri);
-
+	public DoctorVO doctorGetDetail(RecordVO doctor);
 }
 

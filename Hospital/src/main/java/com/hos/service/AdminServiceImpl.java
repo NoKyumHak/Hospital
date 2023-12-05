@@ -35,10 +35,6 @@ public class AdminServiceImpl implements AdminService {
 		});
 	}
 
-	@Override
-	public DoctorVO doctorGetDetail(RecordVO record) throws Exception {
-		return adminmapper.doctorGetDetail(record);
-		
-	}
+	
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hos.mapper.DoctorMapper;
 import com.hos.mapper.MedicalMapper;
 import com.hos.model.CheckVO;
 import com.hos.model.Criteria;
@@ -16,9 +17,11 @@ import lombok.extern.log4j.Log4j;
 @Service
 @Log4j
 public class MedicalServiceImpl implements MedicalService {
-	
+
 	@Autowired
 	private MedicalMapper medicalmapper;
+	
+
 	
 	/* 예약 확인 */
 	@Override
@@ -46,4 +49,10 @@ public class MedicalServiceImpl implements MedicalService {
 		log.info("goodsGetTotal().........");
 		return medicalmapper.DoctodTotal(cri);
 	}	
+	@Override
+	public DoctorVO doctorGetDetail(RecordVO record) throws Exception {
+		
+		return medicalmapper.doctorGetDetail(record);
+		
+	}
 }
