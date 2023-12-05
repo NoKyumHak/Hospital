@@ -1,7 +1,9 @@
 package com.hos.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.hos.model.Criteria;
 import com.hos.model.MemberVO;
 import com.hos.model.RecordVO;
 
@@ -12,5 +14,8 @@ public interface RecordService {
     public RecordVO recordGetDetail(RecordVO record) throws Exception;
 	
     public RecordVO recordDetail(int recordNum) throws Exception;
+    
+    /* Record 목록 */
+    public List<RecordVO> recordGetList(Criteria cri) throws Exception;
 	
 }

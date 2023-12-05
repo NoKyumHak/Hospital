@@ -22,7 +22,7 @@
 
 	</select>
 	
-	 <!-- 작가 목록 -->
+	 <!-- Record 목록 -->
       <select id="recordGetList" resultType="com.hos.model.RecordVO">
       
       <![CDATA[

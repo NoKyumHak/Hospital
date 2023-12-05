@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hos.model.CheckVO;
+import com.hos.model.Criteria;
 import com.hos.model.DoctorVO;
 import com.hos.model.MemberVO;
 import com.hos.model.RecordVO;
@@ -68,6 +69,16 @@ public class MypageController {
 		model.addAttribute("doctorDetail", doctor);
 		
 		logger.info("doctorGetDetail...+recordGetDetail..."  + record + doctor);
+	}
+	
+	// record 리스트 페이지 접속
+	@RequestMapping(value="mypageRecordList", method = RequestMethod.GET)
+	public void recordListGet(Criteria cri, Model model) throws Exception{
+		
+		logger.info("mypageRecordList..." + cri);
+		
+		
+		
 	}
 	
 	// 마이 페이지 이동
