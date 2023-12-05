@@ -10,6 +10,7 @@
 
 	</select>
 
+	<!-- Record 디테일 페이지 -->
 	<select id="recordGetDetail" resultType="com.hos.model.RecordVO">
 
 		select * from hos_record where recordNum = #{recordNum}
@@ -51,7 +52,7 @@
           
           <if test="keyword != null">
           
-             where recordtitle like '%' || #{keyword} || '%'
+             where recordTitle like '%' || #{keyword} || '%'
           
           </if>
           

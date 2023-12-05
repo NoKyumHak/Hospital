@@ -13,7 +13,6 @@ public class PageVO {
     private Criteria cri;
     /* 생성자(클래스 호출 시 각 변수 값 초기화) */
     public PageVO(Criteria cri, int total) {
-    	System.out.println(cri+"zzzzz"+total);
         
         /* cri, total 초기화 */
         this.cri = cri;

@@ -9,6 +9,8 @@ public class RecordVO {
 	
 	private int doctorNum;
 	
+	private String doctorName;
+	
 	private int memberNum;
 	
 	private String recordContent;
@@ -22,6 +24,14 @@ public class RecordVO {
 	private Date dsDate;
 	
 	private String expense;
+	
+	public String getDoctorName() {
+		return doctorName;
+	}
+
+	public void setDoctorName(String doctorName) {
+		this.doctorName = doctorName;
+	}
 
 	public int getRecordNum() {
 		return recordNum;
@@ -89,9 +99,9 @@ public class RecordVO {
 
 	@Override
 	public String toString() {
-		return "RecordVO [recordNum=" + recordNum + ", doctorNum=" + doctorNum + ", memberNum=" + memberNum
-				+ ", recordContent=" + recordContent + ", recordTitle=" + recordTitle + ", recordDate=" + recordDate
-				+ ", dsDate=" + dsDate + ", expense=" + expense + "]";
+		return "RecordVO [recordNum=" + recordNum + ", doctorNum=" + doctorNum + ", doctorName=" + doctorName
+				+ ", memberNum=" + memberNum + ", recordContent=" + recordContent + ", recordTitle=" + recordTitle
+				+ ", recordDate=" + recordDate + ", dsDate=" + dsDate + ", expense=" + expense + "]";
 	}
 	
 }

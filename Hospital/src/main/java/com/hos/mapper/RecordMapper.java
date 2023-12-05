@@ -12,6 +12,7 @@ public interface RecordMapper {
 	
 	public List<RecordVO> memberRecordGet(MemberVO member);
 	
+	// Record 상세
 	public RecordVO recordDetail(int recordNum);
 	
 	public List<RecordVO> recordGetList(Criteria cri);

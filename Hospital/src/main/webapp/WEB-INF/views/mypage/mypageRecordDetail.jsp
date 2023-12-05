@@ -26,25 +26,31 @@
                 <table>
                     <tr>
                         <td>번호</td>
-                        <td>${mypageRecordDetail.recordNum}</td>
+                        <td>${recordDetail.recordNum}</td>
                     </tr>
                     <tr>
                         <td>제목</td>
-                        <td>${mypageRecordDetail.recordTitle}</td>
+                        <td>${recordDetail.recordTitle}</td>
                     </tr>
                     <tr>
                         <td>날짜</td>
-                        <td><fmt:formatDate value="${mypageRecordDetail.recordDate}" pattern="yyyy/MM/dd" /></td>
+                        <td><fmt:formatDate value="${recordDetail.recordDate}" pattern="yyyy/MM/dd" /></td>
                     </tr>
                     <tr>
                         <td>비용</td>
-                        <td>${mypageRecordDetail.expense}</td>
+                        <td>${recordDetail.expense}</td>
                     </tr>
                     <tr>
                         <td>담당의</td>
-                        <td>${mypageRecordDetail.doctorName}</td>
+                        <td>${recordDetail.doctorName}</td>
                     </tr>
                 </table>
+                <form id="moveForm" method="get">
+                	<input type="hidden" name="recordNum" value='<c:out value="${recordDetail.recordNum}"/>'>
+					<input type="hidden" name="pageNum" value="${cri.pageNum}">
+					<input type="hidden" name="amount" value="${cri.amount}">
+					<input type="hidden" name="keyword" value="${cri.keyword}">
+				</form>
             </div>
         </div>
     </div>

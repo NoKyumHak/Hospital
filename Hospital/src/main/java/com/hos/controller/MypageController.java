@@ -3,6 +3,7 @@ package com.hos.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -12,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hos.model.CheckVO;
@@ -40,10 +39,10 @@ public class MypageController {
 	private CheckService checkservice;
 	
 	@Autowired
-	private RecordService recordservice;
+	private MedicalService medicalservice;
 	
 	@Autowired
-	private MedicalService medicalservice;
+	private RecordService recordservice;
 
 	@Autowired
 	private BCryptPasswordEncoder pwEncoder;
@@ -51,22 +50,36 @@ public class MypageController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	// record 리스트 페이지 접속
-	@RequestMapping(value="mypageRecordView", method = RequestMethod.GET)
-	public void recordListGet(Criteria cri, Model model) throws Exception{
-		
-		logger.info("mypageRecordList..." + cri);
-		
-		List list = recordservice.recordGetList(cri);
-		
-		model.addAttribute("recordDetail", list);
-		
-		/* 페이지 이동 인터페이스 데이터 */
-        int total = recordservice.recordGetTotal(cri);
-        
-        PageVO pageMaker = new PageVO(cri, total);
-        
-        model.addAttribute("pageMaker", pageMaker);
-		
+	@RequestMapping(value = "mypageRecordView", method = RequestMethod.GET)
+	public void recordListGet(ServletRequest request, Criteria cri, Model model) throws Exception {
+	    String memberNumParam = request.getParameter("memberNum");
+	    int memberNum = (memberNumParam != null) ? Integer.parseInt(memberNumParam) : 1;
+
+	    logger.info("mypageRecordList for memberNum: " + memberNum);
+
+	    List<RecordVO> list = new ArrayList<>();
+	    List<RecordVO> listt = recordservice.recordGetList(cri);
+	    for (RecordVO item : listt) {
+	        if (item.getMemberNum() == memberNum) {
+	            list.add(item);
+	        }
+	    }
+	    System.out.println(list);
+
+	    ArrayList<DoctorVO> doctor = new ArrayList<>();
+	    DoctorVO dvo = new DoctorVO();
+	    model.addAttribute("recordDetail", list);
+	    model.addAttribute("doctorDetail", doctor);
+
+	    for (RecordVO item : list) {
+	        dvo = medicalservice.doctorGetDetail(item);
+	        doctor.add(dvo);
+	    }
+
+	    /* 페이지 이동 인터페이스 데이터 */
+	    int total = recordservice.recordGetTotal(cri);
+	    PageVO pageMaker = new PageVO(cri, total);
+	    model.addAttribute("pageMaker", pageMaker);
 	}
 	
 	// 마이 페이지 이동
@@ -130,12 +143,12 @@ public class MypageController {
 	}
 	
 	// Record 상세 페이지
-	@GetMapping("/mypagerecordDetail")
-	public void recordDetailGET(int recordId,Criteria cri, Model model) throws Exception {
-	    logger.info("recordDetail......." + recordId);
+	@RequestMapping(value="mypageRecordDetail", method = RequestMethod.GET)
+	public void recordDetailGET(int recordNum, Criteria cri, Model model) throws Exception {
+	    logger.info("recordDetail......." + recordNum);
 
-	    model.addAttribute("Criteria", cri);
-	    model.addAttribute("recordDetail", recordservice.recordDetail(recordId));
+	    model.addAttribute("cri", cri);
+	    model.addAttribute("recordDetail", recordservice.recordDetail(recordNum));
 
 	}
 	
