@@ -1,6 +1,7 @@
 package com.hos.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,6 +22,7 @@ import com.hos.model.CheckVO;
 import com.hos.model.Criteria;
 import com.hos.model.DoctorVO;
 import com.hos.model.MemberVO;
+import com.hos.model.PageVO;
 import com.hos.model.RecordVO;
 
 import com.hos.service.CheckService;
@@ -48,36 +50,22 @@ public class MypageController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	// doctor 가져오기
-	@GetMapping("/mypageRecordView")
-	public void doctorGetDetail(HttpServletRequest request,MemberVO member, Model model) throws Exception{
-		HttpSession session = request.getSession();
-		ArrayList<RecordVO> record = new ArrayList<RecordVO>();
-		ArrayList<DoctorVO> doctor = new ArrayList<DoctorVO>();
-		DoctorVO dvo = new DoctorVO();
-		member = (MemberVO) session.getAttribute("member");
-		System.out.println(member);
-		
-		record = recordservice.memberRecordGet(member);
-		
-		for(RecordVO item : record) {
-			dvo = medicalservice.doctorGetDetail(item);
-			doctor.add(dvo);
-		}
-		
-		model.addAttribute("recordDetail", record);
-		model.addAttribute("doctorDetail", doctor);
-		
-		logger.info("doctorGetDetail...+recordGetDetail..."  + record + doctor);
-	}
-	
 	// record 리스트 페이지 접속
-	@RequestMapping(value="mypageRecordList", method = RequestMethod.GET)
+	@RequestMapping(value="mypageRecordView", method = RequestMethod.GET)
 	public void recordListGet(Criteria cri, Model model) throws Exception{
 		
 		logger.info("mypageRecordList..." + cri);
 		
+		List list = recordservice.recordGetList(cri);
 		
+		model.addAttribute("recordDetail", list);
+		
+		/* 페이지 이동 인터페이스 데이터 */
+        int total = recordservice.recordGetTotal(cri);
+        
+        PageVO pageMaker = new PageVO(cri, total);
+        
+        model.addAttribute("pageMaker", pageMaker);
 		
 	}
 	
@@ -142,14 +130,13 @@ public class MypageController {
 	}
 	
 	// Record 상세 페이지
-	@GetMapping("/mypageRecordDetail")
-	public String recordDetailGET(@RequestParam("recordId") int recordId, Model model) throws Exception {
+	@GetMapping("/mypagerecordDetail")
+	public void recordDetailGET(int recordId,Criteria cri, Model model) throws Exception {
 	    logger.info("recordDetail......." + recordId);
 
-	    model.addAttribute("record", recordId);
+	    model.addAttribute("Criteria", cri);
 	    model.addAttribute("recordDetail", recordservice.recordDetail(recordId));
 
-	    return "mypage/mypageRecordDetail";  // HTML 페이지 이름 반환
 	}
 	
 }

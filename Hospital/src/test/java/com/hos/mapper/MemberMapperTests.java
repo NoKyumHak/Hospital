@@ -23,17 +23,14 @@ public class MemberMapperTests {
 	
 	/* 작가 목록 테스트 */
     @Test
-    public void recordGetListTest() throws Exception{
+    public void recordGetTotalTest() throws Exception{
         
-        Criteria cri = new Criteria(3,10);    // 3페이지 & 10개 행 표시
+        Criteria cri = new Criteria();    // 3페이지 & 10개 행 표시
         
-        List<RecordVO> list = mapper.recordGetList(cri);
-        
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println("list" + i + ".........." + list.get(i));
+        int total = mapper.recordGetTotal(cri);
+            System.out.println("total");
         }
         
     }
     
     
-}

@@ -41,4 +41,10 @@ public class RecordServiceImpl implements RecordService{
 		return recordmapper.recordGetList(cri);
 	}
 
+	@Override
+	public int recordGetTotal(Criteria cri) throws Exception {
+		log.info("(service)recordGetTotal()......." + cri);
+        return recordmapper.recordGetTotal(cri);
+    }
+
 }

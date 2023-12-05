@@ -44,5 +44,17 @@
       ]]>
       
       </select>
+      
+      <select id="recordGetTotal" resultType="int">
+      
+          select count(*) from hos_record
+          
+          <if test="keyword != null">
+          
+             where recordtitle like '%' || #{keyword} || '%'
+          
+          </if>
+          
+      </select>
 
 </mapper>

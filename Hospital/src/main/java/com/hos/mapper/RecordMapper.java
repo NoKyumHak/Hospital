@@ -16,4 +16,6 @@ public interface RecordMapper {
 	
 	public List<RecordVO> recordGetList(Criteria cri);
 	
+	public int recordGetTotal(Criteria cri);
+	
 }

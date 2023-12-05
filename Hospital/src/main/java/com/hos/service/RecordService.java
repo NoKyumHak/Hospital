@@ -15,7 +15,10 @@ public interface RecordService {
 	
     public RecordVO recordDetail(int recordNum) throws Exception;
     
-    /* Record 목록 */
+    // Record 목록
     public List<RecordVO> recordGetList(Criteria cri) throws Exception;
+    
+    // Record 총 수
+    public int recordGetTotal(Criteria cri) throws Exception;
 	
 }
