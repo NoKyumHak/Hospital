@@ -61,7 +61,7 @@
                   <label>의사 이름</label>
                </div>
                <div class="form_section_content">
-                  <input name="DOCTORNAME"> <span id="warn_authorName">의사의
+                  <input name="doctorName"> <span id="warn_authorName">의사의
                      이름을 입력 해주세요.</span>
                </div>
             </div>
@@ -70,9 +70,9 @@
                   <label>소속</label>
                </div>
                <div class="form_section_content">
-                  <select name="SUBJECT">
+                  <select name="subject">
                      <option value="none" selected>=== 선택 ===</option>
-                     <option value="01">정형 외과</option>
+                     <option value="정형외과">정형 외과</option>
 
                   </select> <span id="warn_nationId">소속된 과를 선택해주세요.</span>
                </div>
@@ -82,7 +82,7 @@
                   <label>의사소개</label>
                </div>
                <div class="form_section_content">
-                  <input name="DOCTORCONTENT" type="text"> <span
+                  <input name="doctorContent" type="text"> <span
                      id="warn_authorIntro">의사 소개를 입력 해주세요.</span>
                </div>
             </div>

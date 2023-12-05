@@ -29,6 +29,9 @@ public class AdminServiceImpl implements AdminService {
 
 		doctor.getImageList().forEach(attach -> {
 			log.info(doctor.getDoctorNum());
+
+			attach.setDoctorNum(doctor.getDoctorNum()-1);
+			log.info(attach);
 			attach.setDoctorNum(doctor.getDoctorNum());
 			adminmapper.imageEnroll(attach);
 

@@ -17,7 +17,7 @@
   	
 	  	<![CDATA[
 		select * from(
-		    select /*+INDEX_DESC(vam_book SYS_C008417)*/ rownum as rn, doctornum, doctorname,doctorcontent,subject
+		    select /*+INDEX_DESC(hos_doctor SYS_C008417)*/ rownum as rn, doctornum, doctorname,doctorcontent,subject
 		    from hos_doctor
 		    where 
 		]]>

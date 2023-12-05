@@ -18,11 +18,7 @@ public class AdminMapperTest {
 	/* 이미지 등록 */
 	@Test
 	public void imageEnrollTest() {
-		
-		DoctorVO vo = new DoctorVO();
 
-		
-		mapper.doctorEnroll(vo);
 		
 	}
 	

@@ -29,12 +29,56 @@
 	var table = 0;
 </script>
 </head>
-<body>
-	<%@include file="../includes/admin/header.jsp"%>
-	<div class="admin_content_wrap">
-		<div class="admin_content_subject">
-			<span>상품관리</span>
-		</div>
+<body>	
+	<div class="wrapper">
+		<div class="wrap">
+			<div class="top_gnb_area">
+				<h1>헤더</h1>
+			</div>
+			<div class="top_area">
+				<div class="logo_area">
+					<img src="../resources/img/main1.png" width="100%" height="100%">
+				</div>
+				<div class="land_area">
+					<img src="../resources/img/main2.png" width="100%" height="100%">
+				</div>
+				<div class="login_area">
+					<c:if test="${member == null}">
+						<div class="login_button">
+							<a href="/member/login"><img src="../resources/img/login.png"
+								width="100%" height="100%"></a>
+						</div>
+						<span><a href="/member/join">회원가입</a></span>
+						<span><a href="/admin/main">관리자페이지</a></span>
+					</c:if>
+					<c:if test="${member != null }">
+						<c:if test="${member.adminCk == 1 }">
+							<li><a href="/medical/main">의료진 페이지</a></li>
+						</c:if>
+						<c:if test="${member.adminCk == 2 }">
+							<li><a href="/admin/main">관리자 페이지</a></li>
+						</c:if>
+						<li><a href="/member/logout.do">로그아웃</a></li>
+						<li><a href="/mypage/mypage">마이페이지</a></li>
+					</c:if>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<nav id="nav1">
+				<ul>
+					<li>대우 병원 입니다</li>
+					<li><a href="/main">인사말</a></li>
+					<li><a href="/medicalinfo">의료진 정보</a></li>
+					<li><a href="/home/way">오시는길</a></li>
+					<li><a
+						href="javascript:void(window.open
+         	('../member/reserve', '진료 예약','width=800, height=600'))">예약
+					</a></li>
+					<li><a href="/home/info">과 목록</a></li>
+				</ul>
+			</nav>
+			<div class="content_area">
 		<div class="goods_table_wrap">
 			<!-- 상품 리스트 O -->
 			<c:if test="${listcheck != 'empty'}">
@@ -54,20 +98,20 @@
 								<div class="form_section">
                     			<div class="form_section_content">
 
-									<div id="uploadReslut${list.DOCTORNUM}">
+									<div id="uploadReslut${list.doctorNum}">
 																		
 									</div>
                     			</div>
                     		</div>
                     		<script>
-                    			arrlist.push("${list.DOCTORNUM}");
+                    			arrlist.push("${list.doctorNum}");
                     			table++;
                     		</script>
 							</td>
-							<td><c:out value="${list.DOCTORNUM}"></c:out></td>
-							<td><c:out value="${list.DOCTORNAME}"></c:out></td>
-							<td><c:out value="${list.DOCTORCONTENT}"></c:out></td>
-							<td><c:out value="${list.SUBJECT}"></c:out></td>
+							<td><c:out value="${list.doctorNum}"></c:out></td>
+							<td><c:out value="${list.doctorName}"></c:out></td>
+							<td><c:out value="${list.doctorContent}"></c:out></td>
+							<td><c:out value="${list.subject}"></c:out></td>
 						</tr>
 					</c:forEach>
 				</table>

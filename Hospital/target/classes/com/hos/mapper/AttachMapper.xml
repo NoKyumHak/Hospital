@@ -5,7 +5,7 @@
   <mapper namespace="com.hos.mapper.AttachMapper">
 	<select id="getAttachList" resultType="com.hos.model.DocImageVO">
 	
-		select * from hos_image where DOCTORNUM = #{doctorNum}
+		select * from hos_image where doctorNum = #{doctorNum}
 	
 	</select>
 
